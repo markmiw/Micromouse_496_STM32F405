@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project version="2G - Default" name="STM32F405xx_cmsisboot">
+  <Target name="STM32F405xx_cmsisboot" isCurrent="1">
+    <Device manufacturerId="9" manufacturerName="ST" chipId="252" chipName="STM32F405OE" boardId="" boardName="" coreId="4" coreName="Cortex M4"/>
+    <BuildOption>
+      <Compile>
+        <Option name="OptimizationLevel" value="0"/>
+        <Option name="UseFPU" value="0"/>
+        <Option name="UserEditCompiler" value=""/>
+        <Option name="SupportCPlusplus" value="1"/>
+        <Includepaths>
+          <Includepath path="."/>
+        </Includepaths>
+        <DefinedSymbols>
+          <Define name="STM32F405OE"/>
+          <Define name="SUPPORT_CPLUSPLUS"/>
+        </DefinedSymbols>
+      </Compile>
+      <Link useDefault="0">
+        <Option name="DiscardUnusedSection" value="0"/>
+        <Option name="UserEditLinkder" value=""/>
+        <Option name="UseMemoryLayout" value="1"/>
+        <Option name="nostartfiles" value="0"/>
+        <Option name="LTO" value="0"/>
+        <Option name="IsNewStartupCode" value="1"/>
+        <Option name="Library" value="Not use C Library"/>
+        <Option name="UserEditLinker" value="-lstdc++; "/>
+        <LinkedLibraries/>
+        <MemoryAreas debugInFlashNotRAM="1">
+          <Memory name="IROM1" type="ReadOnly" size="0x00080000" startValue="0x08000000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00020000" startValue="0x20000000"/>
+          <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
+          <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
+        </MemoryAreas>
+        <LocateLinkFile path="../../../../../../appdata/roaming/coocox/coide/configuration/programdata/stm32f405xx_cmsisboot/arm-gcc-link.ld" type="0"/>
+      </Link>
+      <Output>
+        <Option name="OutputFileType" value="0"/>
+        <Option name="Path" value="./"/>
+        <Option name="Name" value="STM32F405xx_cmsisboot"/>
+        <Option name="HEX" value="1"/>
+        <Option name="BIN" value="1"/>
+      </Output>
+      <User>
+        <UserRun name="Run#1" type="Before" checked="0" value=""/>
+        <UserRun name="Run#1" type="After" checked="0" value=""/>
+      </User>
+    </BuildOption>
+    <DebugOption>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="ST-Link"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="SWD"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="SYSRESETREQ"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2009"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="C:\Users\Sam\AppData\Roaming\CooCox\CoIDE\config\flash\CooCox-Flash\CoIDE_STM32F4xx_512K\STM32F4xx_512.elf"/>
+    </DebugOption>
+    <ExcludeFile/>
+  </Target>
+  <Components path="./">
+    <Component id="97" name="cmsis_core" path="" type="BasicComponet"/>
+  </Components>
+  <LocalComponents/>
+  <Files>
+    <File name="stm32f405xx.h" path="source/stm32f405xx.h" type="1"/>
+    <File name="components/cmsis_core/core_sc000.h" path="../cmsis_core/source/core_sc000.h" type="1"/>
+    <File name="components/cmsis_core/core_cm0.h" path="../cmsis_core/source/core_cm0.h" type="1"/>
+    <File name="startup_stm32f405xx.S" path="source/startup_stm32f405xx.S" type="1"/>
+    <File name="system_stm32f4xx.h" path="source/system_stm32f4xx.h" type="1"/>
+    <File name="components/cmsis_core/core_cmInstr.h" path="../cmsis_core/source/core_cmInstr.h" type="1"/>
+    <File name="components/cmsis_core/core_cm4.h" path="../cmsis_core/source/core_cm4.h" type="1"/>
+    <File name="components/cmsis_core/core_cm4_simd.h" path="../cmsis_core/source/core_cm4_simd.h" type="1"/>
+    <File name="components/cmsis_core" path="" type="2"/>
+    <File name="components/cmsis_core/core_cmFunc.h" path="../cmsis_core/source/core_cmFunc.h" type="1"/>
+    <File name="components" path="" type="2"/>
+    <File name="system_stm32f4xx.c" path="source/system_stm32f4xx.c" type="1"/>
+    <File name="components/cmsis_core/arm_const_structs.h" path="../cmsis_core/source/arm_const_structs.h" type="1"/>
+    <File name="components/cmsis_core/arm_common_tables.h" path="../cmsis_core/source/arm_common_tables.h" type="1"/>
+    <File name="stm32f4xx.h" path="source/stm32f4xx.h" type="1"/>
+    <File name="components/cmsis_core/core_cm3.h" path="../cmsis_core/source/core_cm3.h" type="1"/>
+    <File name="components/cmsis_core/core_cm0plus.h" path="../cmsis_core/source/core_cm0plus.h" type="1"/>
+    <File name="main.c" path="test/main.c" type="1"/>
+    <File name="components/cmsis_core/core_sc300.h" path="../cmsis_core/source/core_sc300.h" type="1"/>
+    <File name="components/cmsis_core/arm_math.h" path="../cmsis_core/source/arm_math.h" type="1"/>
+  </Files>
+  <Bookmarks/>
+</Project>
