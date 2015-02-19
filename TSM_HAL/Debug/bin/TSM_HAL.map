@@ -612,17 +612,17 @@ Discarded input sections
  .debug_frame   0x00000000      0x544 ..\obj\stm32f4xx_hal_rtc_ex.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\stm32f4xx_hal_rtc_ex.o
- .text          0x00000000       0x10 ..\obj\motor.o
+ .text          0x00000000       0x88 ..\obj\motor.o
  .data          0x00000000        0x0 ..\obj\motor.o
  .bss           0x00000000        0x0 ..\obj\motor.o
- .debug_info    0x00000000       0xa7 ..\obj\motor.o
- .debug_abbrev  0x00000000       0x63 ..\obj\motor.o
+ .debug_info    0x00000000      0x8c6 ..\obj\motor.o
+ .debug_abbrev  0x00000000      0x13b ..\obj\motor.o
  .debug_aranges
                 0x00000000       0x20 ..\obj\motor.o
- .debug_line    0x00000000      0x194 ..\obj\motor.o
- .debug_str     0x00000000      0x158 ..\obj\motor.o
+ .debug_line    0x00000000      0x2df ..\obj\motor.o
+ .debug_str     0x00000000      0x7e5 ..\obj\motor.o
  .comment       0x00000000       0x71 ..\obj\motor.o
- .debug_frame   0x00000000       0x30 ..\obj\motor.o
+ .debug_frame   0x00000000       0x34 ..\obj\motor.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\motor.o
  .text          0x00000000        0x0 ..\obj\stm32f4xx_ll_fmc.o
