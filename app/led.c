@@ -35,27 +35,27 @@ void initLed() {
 }
 
 void setLed(int channel, int state) {
-	switch(channel) {
+	switch (channel) {
 	case 0:
-		if(state) {
+		if (state) {
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, GPIO_PIN_SET);
 		} else {
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, GPIO_PIN_RESET);
 		} break;
 	case 1:
-		if(state) {
+		if (state) {
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_SET);
 		} else {
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_RESET);
 		} break;
 	case 2:
-		if(state) {
+		if (state) {
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 		} else {
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 		} break;
 	case 3:
-		if(state) {
+		if (state) {
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
 		} else {
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
@@ -66,7 +66,7 @@ void setLed(int channel, int state) {
 }
 
 void toggleLed(int channel) {
-	switch(channel) {
+	switch (channel) {
 	case 0:
 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_11);
 		break;
