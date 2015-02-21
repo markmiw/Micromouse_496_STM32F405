@@ -71,6 +71,9 @@ void initMotor() {
 	HAL_TIM_PWM_Start(&TIM_HandleStructure, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&TIM_HandleStructure, TIM_CHANNEL_3);
 
+	setDirection(LEFTMOTOR, FORWARD);
+	setDirection(RIGHTMOTOR, FORWARD);
+
 	return;
 }
 

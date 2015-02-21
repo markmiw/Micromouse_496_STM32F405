@@ -7,7 +7,12 @@
 #include "encoder.h"
 #include "led.h"
 
+static int leftCount;
+static int rightCount;
+
 void initEncoder() {
+	leftCount = 0;
+	rightCount = 0;
 
 	//Data structure for GPIO configuration
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -46,4 +51,46 @@ void initEncoder() {
 	HAL_NVIC_EnableIRQ(EXTI3_IRQn);
 
 	return;
+}
+
+int readEncoder(int channel) {
+	switch (channel) {
+	case LEFTENCODER:
+		return leftCount;
+	case RIGHTENCODER:
+		return rightCount;
+	}
+}
+
+void resetEncoder(int channel) {
+	switch (channel) {
+	case LEFTENCODER:
+		leftCount = 0;
+		break;
+	case RIGHTENCODER:
+		rightCount = 0;
+		break;
+	}
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	if (GPIO_Pin == GPIO_PIN_0) {
+		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_SET) {
+			rightCount++;
+		} else {
+			rightCount--;
+		}
+	} else if (GPIO_Pin == GPIO_PIN_3) {
+//		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15) == GPIO_PIN_SET) {
+//			leftCount++;
+//		} else {
+//			leftCount--;
+//		} STILL GIVING ME PROBLEMS!!!
+		leftCount++;
+
+		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15) != GPIO_PIN_SET) {
+			toggleLED(RED);
+		}
+
+	} return;
 }

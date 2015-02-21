@@ -65,6 +65,22 @@ void setLED(int channel, int state) {
 	return;
 }
 
+void setLEDAll(int state) {
+	if (state) {
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
+	} else {
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+	}
+
+	return;
+}
+
 void toggleLED(int channel) {
 	switch (channel) {
 	case 0:
@@ -80,6 +96,15 @@ void toggleLED(int channel) {
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
 		break;
 	}
+
+	return;
+}
+
+void toggleLEDAll() {
+	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_11);
+	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_10);
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
 
 	return;
 }

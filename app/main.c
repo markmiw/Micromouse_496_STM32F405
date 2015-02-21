@@ -10,8 +10,9 @@
 #include "motor.h"
 #include "stm32f4xx_it.h"
 
-static int leftCount;
-static int rightCount;
+void testChaser(int mode);
+void testMenu();
+void testRamp(int maxSpeed, int period);
 
 void main(void) {
 	HAL_Init();
@@ -19,99 +20,108 @@ void main(void) {
 	initMotor();
 	initEncoder();
 
-	leftCount = 0;
-	rightCount = 0;
-
-//	//Turn on LED
-//	setLED(WHITE, ON);
-//	HAL_Delay(1000);
-//	setLED(BLUE, ON);
-//	HAL_Delay(1000);
-//	setLED(GREEN, ON);
-//	HAL_Delay(1000);
-//	setLED(RED, ON);
-//
 	setDirection(LEFTMOTOR, FORWARD);
 	setDirection(RIGHTMOTOR, FORWARD);
-//
-//	for(x = 0; x < 150; x++) {
-//		setSpeed(LEFTMOTOR, x);
-//		setSpeed(RIGHTMOTOR, x);
-//		HAL_Delay(10);
-//	}
-//
-//	for(x = 150; x >=0; x--) {
-//		setSpeed(LEFTMOTOR, x);
-//		setSpeed(RIGHTMOTOR, x);
-//		HAL_Delay(10);
-//	}
-//
-//	setSpeed(LEFTMOTOR, 200);
-//	setSpeed(RIGHTMOTOR, 200);
-//	HAL_Delay(1000);
-//	setDirection(LEFTMOTOR, BACKWARD);
-//	setDirection(RIGHTMOTOR, BACKWARD);
-//	HAL_Delay(1000);
-//	setSpeed(LEFTMOTOR, 0);
-//	setSpeed(RIGHTMOTOR, 0);
+
+	int leftCount = 0;
 
     while (1) {
-//    	if (leftCount > 3413) {
-//    		setLED(BLUE, ON);
-//    	}
-//
-//    	if (rightCount > 3413) {
-//			setLED(GREEN, ON);
-//		}
+    	leftCount = readEncoder(LEFTENCODER);
 
-//    	if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_SET) {
-//    		setLED(WHITE, ON);
-//    	} else {
-//    		setLED(WHITE, OFF);
-//    	}
-
-//    	if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15) == GPIO_PIN_SET) {
-//    		setLED(RED, ON);
-//    	} else {
-//    		setLED(RED, OFF);
-//    	}
-    	if (rightCount < 0) {
-    		rightCount = 0;
-    	} else if (rightCount > 0 && rightCount <= 800) {
-    		setLED(RED, ON);
-    		setLED(GREEN, OFF);
-    	} else if (rightCount > 800 && rightCount <= (800*2)) {
-    		setLED(RED, OFF);
-    		setLED(GREEN, ON);
-    		setLED(BLUE, OFF);
-    	} else if (rightCount > (800*2) && rightCount <= (800*3)) {
-    		setLED(GREEN, OFF);
-			setLED(BLUE, ON);
-			setLED(WHITE, OFF);
-    	} else if (rightCount > (800*3) && rightCount <= (800*4)) {
-    		setLED(BLUE, OFF);
-			setLED(WHITE, ON);
-    	} else if (rightCount > (800*4)) {
-    		rightCount = (800*4);
+    	if (leftCount > 3413) {
+    		setLED(BLUE, ON);
     	}
+
     }
 
     return;
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	if (GPIO_Pin == GPIO_PIN_0) {
-		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_SET) {
-			rightCount++;
-		} else {
-			rightCount--;
-		}
-	} else if (GPIO_Pin == GPIO_PIN_3) {
-//		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15) == GPIO_PIN_SET) {
-//			leftCount++;
-//		} else {
-//			leftCount--;
-//		} STILL GIVING ME PROBLEMS!!!
-		leftCount++;
-	} return;
+testChaser(int mode, int period) {
+	switch (mode) {
+	case 0:
+		setLED(WHITE, ON);
+		HAL_Delay(period);
+		setLED(BLUE, ON);
+		HAL_Delay(period);
+		setLED(GREEN, ON);
+		HAL_Delay(period);
+		setLED(RED, ON);
+		HAL_Delay(period);
+		break;
+	case 1:
+		setLED(WHITE, ON);
+		HAL_Delay(period);
+		setLED(BLUE, ON);
+		HAL_Delay(period);
+		setLED(GREEN, ON);
+		HAL_Delay(period);
+		setLED(RED, ON);
+		HAL_Delay(period);
+		toggleLEDAll();
+		HAL_Delay(period);
+		toggleLEDAll();
+		HAL_Delay(period);
+		toggleLEDAll();
+		HAL_Delay(period);
+		toggleLEDAll();
+		HAL_Delay(period);
+		toggleLEDAll();
+		break;
+	case 2:
+		setLED(WHITE, ON);
+		HAL_Delay(period);
+		setLED(WHITE, OFF);
+		setLED(BLUE, ON);
+		HAL_Delay(period);
+		setLED(BLUE, OFF);
+		setLED(GREEN, ON);
+		HAL_Delay(period);
+		setLED(GREEN, OFF);
+		setLED(RED, ON);
+		HAL_Delay(period);
+		break;
+	}
+}
+
+void testMenu() {
+	int rightCount = readEncoder(RIGHTENCODER);
+	if (rightCount < 0) {
+		rightCount = 0;
+	} else if (rightCount >= 0 && rightCount <= 800) {
+		setLED(RED, ON);
+		setLED(GREEN, OFF);
+		setSpeed(LEFTMOTOR, 0);
+	} else if (rightCount > 800 && rightCount <= (800*2)) {
+		setLED(RED, OFF);
+		setLED(GREEN, ON);
+		setLED(BLUE, OFF);
+		setSpeed(LEFTMOTOR, 30);
+	} else if (rightCount > (800*2) && rightCount <= (800*3)) {
+		setLED(GREEN, OFF);
+		setLED(BLUE, ON);
+		setLED(WHITE, OFF);
+		setSpeed(LEFTMOTOR, 60);
+	} else if (rightCount > (800*3) && rightCount <= (800*4)) {
+		setLED(BLUE, OFF);
+		setLED(WHITE, ON);
+		setSpeed(LEFTMOTOR, 90);
+	} else if (rightCount > (800*4)) {
+		rightCount = (800*4);
+	}
+}
+
+void testRamp(int maxSpeed, int period) {
+	int x;
+	for(x = 0; x < maxSpeed; x++) {
+		setSpeed(LEFTMOTOR, x);
+		setSpeed(RIGHTMOTOR, x);
+		HAL_Delay(period);
+	}
+
+	for(x = maxSpeed; x >=0; x--) {
+		setSpeed(LEFTMOTOR, x);
+		setSpeed(RIGHTMOTOR, x);
+		HAL_Delay(period);
+	}
 }
