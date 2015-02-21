@@ -2,7 +2,7 @@
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_gpio.h"
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_rcc.h"
 
-void initLed() {
+void initLED() {
 	//Data structure for GPIO configuration
 	GPIO_InitTypeDef GPIO_InitStructure;
 
@@ -15,26 +15,26 @@ void initLed() {
 	GPIO_InitStructure.Pull = GPIO_NOPULL;
 	GPIO_InitStructure.Speed = GPIO_SPEED_MEDIUM;
 
-	//1 - Front LED
+	//0 - Front LED
 	GPIO_InitStructure.Pin = GPIO_PIN_11;
 	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
 
-	//2 -
+	//1 -
 	GPIO_InitStructure.Pin = GPIO_PIN_10;
 	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
 
-	//3 -
+	//2 -
 	GPIO_InitStructure.Pin = GPIO_PIN_5;
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-	//4 - Back LED
+	//3 - Back LED
 	GPIO_InitStructure.Pin = GPIO_PIN_6;
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
 
 	return;
 }
 
-void setLed(int channel, int state) {
+void setLED(int channel, int state) {
 	switch (channel) {
 	case 0:
 		if (state) {
@@ -65,7 +65,7 @@ void setLed(int channel, int state) {
 	return;
 }
 
-void toggleLed(int channel) {
+void toggleLED(int channel) {
 	switch (channel) {
 	case 0:
 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_11);
