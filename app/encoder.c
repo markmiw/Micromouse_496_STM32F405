@@ -81,16 +81,15 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 			rightCount--;
 		}
 	} else if (GPIO_Pin == GPIO_PIN_3) {
-//		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15) == GPIO_PIN_SET) {
-//			leftCount++;
-//		} else {
-//			leftCount--;
-//		} STILL GIVING ME PROBLEMS!!!
-		leftCount++;
-
-		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15) != GPIO_PIN_SET) {
-			toggleLED(RED);
+		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15) == GPIO_PIN_SET) {
+			leftCount++;
+		} else {
+			leftCount--;
 		}
+
+//		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15) == GPIO_PIN_SET) {
+//			toggleLED(RED);
+//		}
 
 	} return;
 }

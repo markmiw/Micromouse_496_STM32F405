@@ -23,16 +23,19 @@ void main(void) {
 	setDirection(LEFTMOTOR, FORWARD);
 	setDirection(RIGHTMOTOR, FORWARD);
 
-	int leftCount = 0;
+//	int leftCount = 0;
 
-    while (1) {
-    	leftCount = readEncoder(LEFTENCODER);
+	while (1) {
+//		leftCount = readEncoder(LEFTENCODER);
+//
+//		if (leftCount > 3413) {
+//			setLED(BLUE, ON);
+//		} else {
+//			setLED(BLUE, OFF);
+//		}
 
-    	if (leftCount > 3413) {
-    		setLED(BLUE, ON);
-    	}
-
-    }
+//		testMenu(LEFTENCODER);
+	}
 
     return;
 }
@@ -84,30 +87,30 @@ testChaser(int mode, int period) {
 	}
 }
 
-void testMenu() {
-	int rightCount = readEncoder(RIGHTENCODER);
-	if (rightCount < 0) {
-		rightCount = 0;
-	} else if (rightCount >= 0 && rightCount <= 800) {
+void testMenu(int channel) {
+	int count = readEncoder(channel);
+	if (count < 0) {
+		count = 0;
+	} else if (count >= 0 && count <= 800) {
 		setLED(RED, ON);
 		setLED(GREEN, OFF);
-		setSpeed(LEFTMOTOR, 0);
-	} else if (rightCount > 800 && rightCount <= (800*2)) {
+		setSpeed(1 - channel, 0);
+	} else if (count > 800 && count <= (800*2)) {
 		setLED(RED, OFF);
 		setLED(GREEN, ON);
 		setLED(BLUE, OFF);
-		setSpeed(LEFTMOTOR, 30);
-	} else if (rightCount > (800*2) && rightCount <= (800*3)) {
+		setSpeed(1 - channel, 30);
+	} else if (count > (800*2) && count <= (800*3)) {
 		setLED(GREEN, OFF);
 		setLED(BLUE, ON);
 		setLED(WHITE, OFF);
-		setSpeed(LEFTMOTOR, 60);
-	} else if (rightCount > (800*3) && rightCount <= (800*4)) {
+		setSpeed(1 - channel, 60);
+	} else if (count > (800*3) && count <= (800*4)) {
 		setLED(BLUE, OFF);
 		setLED(WHITE, ON);
-		setSpeed(LEFTMOTOR, 90);
-	} else if (rightCount > (800*4)) {
-		rightCount = (800*4);
+		setSpeed(1 - channel, 90);
+	} else if (count > (800*4)) {
+		count = (800*4);
 	}
 }
 
