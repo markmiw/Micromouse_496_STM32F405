@@ -5,20 +5,25 @@
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_gpio.h"
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_rcc.h"
 
+#include "adc.h"
 #include "encoder.h"
 #include "led.h"
 #include "motor.h"
 #include "stm32f4xx_it.h"
 
-void testChaser(int mode);
+void testChaser(int mode, int period);
 void testMenu();
 void testRamp(int maxSpeed, int period);
 
 void main(void) {
+	float rightEmitter = 0;
+	uint32_t test;
+
 	HAL_Init();
 	initLED();
 	initMotor();
 	initEncoder();
+	initADC();
 
 	setDirection(LEFTMOTOR, FORWARD);
 	setDirection(RIGHTMOTOR, FORWARD);
@@ -35,12 +40,31 @@ void main(void) {
 //		}
 
 //		testMenu(LEFTENCODER);
+
+		test = readADC(RIGHT_DET);
+
+		rightEmitter = test * 3.3 / 0xFFF;
+
+		if (rightEmitter > 0 && rightEmitter <= 1) {
+			setLED(RED, ON);
+			setLED(GREEN,OFF);
+			setLED(BLUE, OFF);
+		} else if (rightEmitter > 1 && rightEmitter <= 2) {
+			setLED(RED, OFF);
+			setLED(GREEN, ON);
+			setLED(BLUE, OFF);
+		} else {
+			setLED(RED, OFF);
+			setLED(GREEN,OFF);
+			setLED(BLUE, ON);
+		}
+
 	}
 
     return;
 }
 
-testChaser(int mode, int period) {
+void testChaser(int mode, int period) {
 	switch (mode) {
 	case 0:
 		setLED(WHITE, ON);
