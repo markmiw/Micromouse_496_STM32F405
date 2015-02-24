@@ -40,6 +40,9 @@
       <target file="stm32f4xx_hal_eth.o" lastModified="14ba31e488a">
          <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_eth.c" lastModified="14ba1335e32"/>
       </target>
+      <target file="usart.o" lastModified="14bba5b25b6">
+         <source file="..\..\..\app\usart.c" lastModified="14bba5b21b1"/>
+      </target>
       <target file="stm32f4xx_ll_fsmc.o" lastModified="14ba31e495a">
          <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_ll_fsmc.c" lastModified="14ba1335d81"/>
       </target>
@@ -163,11 +166,11 @@
       <target file="stm32f4xx_hal_cryp_ex.o" lastModified="14ba31e721a">
          <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_cryp_ex.c" lastModified="14ba133600a"/>
       </target>
-      <target file="main.o" lastModified="14bba0b310a">
-         <source file="..\..\..\app\main.c" lastModified="14bba0b2ca7"/>
-      </target>
       <target file="stm32f4xx_hal_iwdg.o" lastModified="14ba31e47d6">
          <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_iwdg.c" lastModified="14ba13362a5"/>
+      </target>
+      <target file="main.o" lastModified="14bba57467e">
+         <source file="..\..\..\app\main.c" lastModified="14bba5741c7"/>
       </target>
       <target file="system_stm32f4xx.o" lastModified="14ba31e6319">
          <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\system_stm32f4xx.c" lastModified="14ba1335f0e"/>

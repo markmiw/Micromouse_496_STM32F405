@@ -1,0 +1,45 @@
+#include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal.h"
+#include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_gpio.h"
+#include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_rcc.h"
+#include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_usart.h"
+
+//Data structure for USART configuration
+USART_HandleTypeDef USART_HandleStructure;
+
+void initUSART() {
+	//Data structure for GPIO configuration
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	//Enable USART clock (1)
+	__USART1_CLK_ENABLE();
+
+	//Enable GPIO clock for USART module (A)
+	__GPIOA_CLK_ENABLE();
+
+	//Configure data structure for GPIO alt
+	GPIO_InitStructure.Mode = GPIO_MODE_AF_PP;
+	GPIO_InitStructure.Pull = GPIO_NOPULL;
+	GPIO_InitStructure.Speed = GPIO_SPEED_FAST;
+	GPIO_InitStructure.Alternate = GPIO_AF7_USART1;
+
+	//TX
+	GPIO_InitStructure.Pin = GPIO_PIN_9;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+	//RX
+	GPIO_InitStructure.Pin = GPIO_PIN_10;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+	USART_HandleStructure.Instance = USART1;
+
+	USART_HandleStructure.Init.BaudRate = 9600;
+	USART_HandleStructure.Init.WordLength = USART_WORDLENGTH_8B;
+	USART_HandleStructure.Init.StopBits = USART_STOPBITS_1;
+	USART_HandleStructure.Init.Parity = USART_PARITY_NONE;
+	USART_HandleStructure.Init.Mode = USART_MODE_TX;
+	USART_HandleStructure.Init.CLKPolarity = USART_POLARITY_HIGH;
+	USART_HandleStructure.Init.CLKPhase = USART_PHASE_1EDGE;
+	USART_HandleStructure.Init.CLKLastBit = USART_LASTBIT_ENABLE;
+
+	HAL_USART_Init(&USART_HandleStructure);
+}

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="4.9.3 -mcpu=cortex-m4 -mthumb -g2 -Map=TSM_HAL.map -O0 --gc-sections -LC:\Users\Micro Mouse\AppData\Roaming\CooCox\CoIDE\configuration\ProgramData\TSM_HAL -TC:\Users\Micro Mouse\AppData\Roaming\CooCox\CoIDE\configuration\ProgramData\TSM_HAL/arm-gcc-link.ld -g">
-      <target file="TSM_HAL.elf" lastModified="14bba0b33cc">
+      <target file="TSM_HAL.elf" lastModified="14bba5b28d5">
          <source file="..\obj\stm32f4xx_ll_usb.o" lastModified="14ba31e501d"/>
          <source file="..\obj\stm32f4xx_hal_rtc.o" lastModified="14ba31e4a47"/>
          <source file="..\obj\stm32f4xx_ll_fsmc.o" lastModified="14ba31e495a"/>
@@ -32,7 +32,7 @@
          <source file="..\obj\stm32f4xx_hal_adc.o" lastModified="14ba31e6400"/>
          <source file="..\obj\stm32f4xx_hal_wwdg.o" lastModified="14ba31e7909"/>
          <source file="..\obj\stm32f4xx_hal_pcd_ex.o" lastModified="14ba31e6762"/>
-         <source file="..\obj\main.o" lastModified="14bba0b310a"/>
+         <source file="..\obj\main.o" lastModified="14bba57467e"/>
          <source file="..\obj\stm32f4xx_hal_can.o" lastModified="14ba31e5615"/>
          <source file="..\obj\stm32f4xx_hal.o" lastModified="14ba31e5c69"/>
          <source file="..\obj\stm32f4xx_hal_rng.o" lastModified="14ba31e4719"/>
@@ -40,9 +40,10 @@
          <source file="..\obj\stm32f4xx_hal_eth.o" lastModified="14ba31e488a"/>
          <source file="..\obj\stm32f4xx_hal_usart.o" lastModified="14ba31e520a"/>
          <source file="..\obj\stm32f4xx_hal_dac_ex.o" lastModified="14ba31e6ce1"/>
+         <source file="..\obj\usart.o" lastModified="14bba5b25b6"/>
          <source file="..\obj\stm32f4xx_hal_cryp_ex.o" lastModified="14ba31e721a"/>
-         <source file="..\obj\stm32f4xx_hal_rcc_ex.o" lastModified="14ba31e5dd9"/>
          <source file="..\obj\stm32f4xx_hal_tim_ex.o" lastModified="14ba31e6fff"/>
+         <source file="..\obj\stm32f4xx_hal_rcc_ex.o" lastModified="14ba31e5dd9"/>
          <source file="..\obj\encoder.o" lastModified="14bb9be2897"/>
          <source file="..\obj\stm32f4xx_hal_dma2d.o" lastModified="14ba31e4eef"/>
          <source file="..\obj\stm32f4xx_hal_smartcard.o" lastModified="14ba31e5109"/>

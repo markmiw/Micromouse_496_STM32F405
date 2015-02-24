@@ -10,6 +10,7 @@
 #include "led.h"
 #include "motor.h"
 #include "stm32f4xx_it.h"
+#include "usart.h"
 
 //Private prototypes
 void testChaser(int mode, int period);
@@ -17,23 +18,25 @@ void testMenu();
 void testRamp(int maxSpeed, int period);
 void batteryFault();
 
+
+
 void main(void) {
 	HAL_Init();
 	initLED();
 	initMotor();
 	initEncoder();
 	initADC();
+	initUSART();
+
+	extern USART_HandleTypeDef USART_HandleStructure;
 
 	int x;
+	uint8_t test = 0xFF;
 
 	//LED start up sequence
 	testChaser(1, 250);
 
-	for (x = 2000; x < 6000; x++) {
-		setBuzzer(x);
-		HAL_Delay(1);
-	}
-	setBuzzer(0);
+	HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Hello", 5, 1000);
 
 	//Main program loop
 	while (1) {
