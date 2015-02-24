@@ -25,7 +25,8 @@ void initMotor() {
 	//Enable GPIO clock for LED module (B)
 	__GPIOB_CLK_ENABLE();
 
-	//Enable TIM clock for PWM (4)
+	//Enable TIM clock for PWM (3 & 4)
+	__TIM3_CLK_ENABLE();
 	__TIM4_CLK_ENABLE();
 
 	//Configure data structure for GPIO output
@@ -45,12 +46,18 @@ void initMotor() {
 	GPIO_InitStructure.Mode = GPIO_MODE_AF_PP;
 	GPIO_InitStructure.Alternate = GPIO_AF2_TIM4;
 
-	//left motor PWM pin
+	//Left motor PWM pin
 	GPIO_InitStructure.Pin = GPIO_PIN_6;
 	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
 
-	//right motor PWM pin
+	//Right motor PWM pin
 	GPIO_InitStructure.Pin = GPIO_PIN_8;
+	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+	GPIO_InitStructure.Alternate = GPIO_AF2_TIM3;
+
+	//Buzzer
+	GPIO_InitStructure.Pin = GPIO_PIN_4;
 	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
 
 	//Configure data structure for TIM handler
@@ -71,10 +78,24 @@ void initMotor() {
 	HAL_TIM_PWM_Start(&TIM_HandleStructure, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&TIM_HandleStructure, TIM_CHANNEL_3);
 
+	TIM_HandleStructure.Instance = TIM3;
+	HAL_TIM_PWM_Init(&TIM_HandleStructure);
+
+	HAL_TIM_PWM_ConfigChannel(&TIM_HandleStructure, &sConfig, TIM_CHANNEL_1);
+
+	HAL_TIM_PWM_Start(&TIM_HandleStructure, TIM_CHANNEL_1);
+
 	setDirection(LEFTMOTOR, FORWARD);
 	setDirection(RIGHTMOTOR, FORWARD);
 
 	return;
+}
+
+void setBuzzer(int duty) {
+	TIM_HandleStructure.Instance = TIM3;
+	HAL_TIM_PWM_Init(&TIM_HandleStructure);
+
+	__HAL_TIM_SetCompare(&TIM_HandleStructure, TIM_CHANNEL_1, duty);
 }
 
 void setDirection(int channel, int direction) {
@@ -114,6 +135,8 @@ void setDirection(int channel, int direction) {
 }
 
 void setSpeed(int channel, int speed) {
+	TIM_HandleStructure.Instance = TIM4;
+	HAL_TIM_PWM_Init(&TIM_HandleStructure);
 	speed = PERIOD - speed;
 	switch (channel) {
 	case 0: //Left motor

@@ -7,6 +7,7 @@
 #define PERIOD 600
 
 void initMotor();
+void setBuzzer();
 void setDirection(int channel, int direction);
 void setSpeed(int channel, int speed);
 void toggleDirection(int channel);

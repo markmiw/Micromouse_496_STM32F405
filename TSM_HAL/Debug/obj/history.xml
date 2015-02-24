@@ -163,8 +163,8 @@
       <target file="encoder.o" lastModified="14bb3265f22">
          <source file="..\..\..\app\encoder.c" lastModified="14bb3265ad8"/>
       </target>
-      <target file="main.o" lastModified="14bb44a3abb">
-         <source file="..\..\..\app\main.c" lastModified="14bb44a3648"/>
+      <target file="main.o" lastModified="14bb91f3be2">
+         <source file="..\..\..\app\main.c" lastModified="14bb91f3778"/>
       </target>
       <target file="stm32f4xx_hal_iwdg.o" lastModified="14ba31e47d6">
          <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_iwdg.c" lastModified="14ba13362a5"/>
@@ -190,11 +190,11 @@
       <target file="stm32f4xx_hal_pwr_ex.o" lastModified="14ba31e6f02">
          <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_pwr_ex.c" lastModified="14ba1335ff7"/>
       </target>
-      <target file="motor.o" lastModified="14bae01351a">
-         <source file="..\..\..\app\motor.c" lastModified="14bae011a18"/>
-      </target>
       <target file="stm32f4xx_hal_adc_ex.o" lastModified="14ba31e58a6">
          <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_adc_ex.c" lastModified="14ba133626a"/>
+      </target>
+      <target file="motor.o" lastModified="14bb91976c2">
+         <source file="..\..\..\app\motor.c" lastModified="14bb91971bd"/>
       </target>
    </processor>
 </history>

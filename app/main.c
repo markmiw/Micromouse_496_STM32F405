@@ -16,8 +16,7 @@ void testMenu();
 void testRamp(int maxSpeed, int period);
 
 void main(void) {
-	float rightEmitter = 0;
-	uint32_t test;
+	uint32_t batteryLevel;
 
 	HAL_Init();
 	initLED();
@@ -28,36 +27,46 @@ void main(void) {
 	setDirection(LEFTMOTOR, FORWARD);
 	setDirection(RIGHTMOTOR, FORWARD);
 
-//	int leftCount = 0;
+	testChaser(1, 500);
 
 	while (1) {
-//		leftCount = readEncoder(LEFTENCODER);
+		batteryLevel = readADC(VOLT_DET);
+
+		if (batteryLevel < 2300) {
+			setSpeed(LEFTMOTOR, 0);
+			setSpeed(RIGHTMOTOR, 0);
+			setBuzzer(200);
+			setLEDAll(OFF);
+
+			while (1) {
+				toggleLED(RED);
+				HAL_Delay(500);
+			}
+		}
 //
-//		if (leftCount > 3413) {
+//		if (test > 3300) {
+//			setLED(WHITE, ON);
+//		} else {
+//			setLED(WHITE, OFF);
+//		}
+//
+//		if (test > 3200) {
 //			setLED(BLUE, ON);
 //		} else {
 //			setLED(BLUE, OFF);
 //		}
-
-//		testMenu(LEFTENCODER);
-
-		test = readADC(RIGHT_DET);
-
-		rightEmitter = test * 3.3 / 0xFFF;
-
-		if (rightEmitter > 0 && rightEmitter <= 1) {
-			setLED(RED, ON);
-			setLED(GREEN,OFF);
-			setLED(BLUE, OFF);
-		} else if (rightEmitter > 1 && rightEmitter <= 2) {
-			setLED(RED, OFF);
-			setLED(GREEN, ON);
-			setLED(BLUE, OFF);
-		} else {
-			setLED(RED, OFF);
-			setLED(GREEN,OFF);
-			setLED(BLUE, ON);
-		}
+//
+//		if (test > 3100) {
+//			setLED(GREEN, ON);
+//		} else {
+//			setLED(GREEN, OFF);
+//		}
+//
+//		if (test > 300) {
+//			setLED(RED, ON);
+//		} else {
+//			setLED(RED, OFF);
+//		}
 
 	}
 
