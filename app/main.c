@@ -11,62 +11,36 @@
 #include "motor.h"
 #include "stm32f4xx_it.h"
 
+//Private prototypes
 void testChaser(int mode, int period);
 void testMenu();
 void testRamp(int maxSpeed, int period);
+void batteryFault();
 
 void main(void) {
-	uint32_t batteryLevel;
-
 	HAL_Init();
 	initLED();
 	initMotor();
 	initEncoder();
 	initADC();
 
-	setDirection(LEFTMOTOR, FORWARD);
-	setDirection(RIGHTMOTOR, FORWARD);
+	int x;
 
-	testChaser(1, 500);
+	//LED start up sequence
+	testChaser(1, 250);
 
+	for (x = 2000; x < 6000; x++) {
+		setBuzzer(x);
+		HAL_Delay(1);
+	}
+	setBuzzer(0);
+
+	//Main program loop
 	while (1) {
-		batteryLevel = readADC(VOLT_DET);
+		//Check for a low battery fault
+		batteryFault();
 
-		if (batteryLevel < 2300) {
-			setSpeed(LEFTMOTOR, 0);
-			setSpeed(RIGHTMOTOR, 0);
-			setBuzzer(200);
-			setLEDAll(OFF);
-
-			while (1) {
-				toggleLED(RED);
-				HAL_Delay(500);
-			}
-		}
-//
-//		if (test > 3300) {
-//			setLED(WHITE, ON);
-//		} else {
-//			setLED(WHITE, OFF);
-//		}
-//
-//		if (test > 3200) {
-//			setLED(BLUE, ON);
-//		} else {
-//			setLED(BLUE, OFF);
-//		}
-//
-//		if (test > 3100) {
-//			setLED(GREEN, ON);
-//		} else {
-//			setLED(GREEN, OFF);
-//		}
-//
-//		if (test > 300) {
-//			setLED(RED, ON);
-//		} else {
-//			setLED(RED, OFF);
-//		}
+		//User code
 
 	}
 
@@ -159,5 +133,29 @@ void testRamp(int maxSpeed, int period) {
 		setSpeed(LEFTMOTOR, x);
 		setSpeed(RIGHTMOTOR, x);
 		HAL_Delay(period);
+	}
+}
+
+void batteryFault() {
+	//Take a reading from the voltage detector
+	uint32_t batteryLevel = readADC(VOLT_DET);
+	//Check to see if voltage level is above 7V
+	//Voltage detector is a voltage divider where 7V is measured as 2.3333V
+	//2.3333V translate to roughly 2333 from the 12 bit ADC
+	if (batteryLevel < 2333) {
+		//Disable all motors
+		setSpeed(LEFTMOTOR, 0);
+		setSpeed(RIGHTMOTOR, 0);
+		//Enable buzzer
+		setBuzzer(4000);
+		//Disable all LEDs
+		setLEDAll(OFF);
+		//Flash red LED every half second.
+		while (1) {
+			//Invert the state of the red LED located closest to the STM
+			toggleLED(RED);
+			//Half second delay
+			HAL_Delay(500);
+		}
 	}
 }

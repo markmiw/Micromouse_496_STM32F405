@@ -2,6 +2,8 @@
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_gpio.h"
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_rcc.h"
 
+#include "led.h"
+
 void initLED() {
 	//Data structure for GPIO configuration
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -30,81 +32,73 @@ void initLED() {
 	//3 - Back LED
 	GPIO_InitStructure.Pin = GPIO_PIN_6;
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-	return;
 }
 
 void setLED(int channel, int state) {
 	switch (channel) {
-	case 0:
+	case WHITE:
 		if (state) {
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, GPIO_PIN_SET);
 		} else {
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, GPIO_PIN_RESET);
 		} break;
-	case 1:
+	case BLUE:
 		if (state) {
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_SET);
 		} else {
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_RESET);
 		} break;
-	case 2:
+	case GREEN:
 		if (state) {
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 		} else {
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 		} break;
-	case 3:
+	case RED:
 		if (state) {
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
 		} else {
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
 		}
 	}
-
-	return;
 }
 
+//Control the state of all 4 LED at once
 void setLEDAll(int state) {
-	if (state) {
+	if (state) { //On state
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
-	} else {
+	} else { //Off state
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
 	}
-
-	return;
 }
 
 void toggleLED(int channel) {
 	switch (channel) {
-	case 0:
+	case WHITE:
 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_11);
 		break;
-	case 1:
+	case BLUE:
 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_10);
 		break;
-	case 2:
+	case GREEN:
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 		break;
-	case 3:
+	case RED:
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
 		break;
 	}
-
-	return;
 }
 
+//Toggle the state of all 4 LED at once
 void toggleLEDAll() {
 	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_11);
 	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_10);
 	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-
-	return;
 }

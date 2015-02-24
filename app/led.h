@@ -8,6 +8,6 @@
 
 void initLED();
 void setLED(int channel, int state);
-setLEDAll(int state);
+void setLEDAll(int state);
 void toggleLEDAll();
 void toggleLED(int channel);

@@ -79,6 +79,7 @@ void initMotor() {
 	HAL_TIM_PWM_Start(&TIM_HandleStructure, TIM_CHANNEL_3);
 
 	TIM_HandleStructure.Instance = TIM3;
+	TIM_HandleStructure.Init.Period = 4000;
 	HAL_TIM_PWM_Init(&TIM_HandleStructure);
 
 	HAL_TIM_PWM_ConfigChannel(&TIM_HandleStructure, &sConfig, TIM_CHANNEL_1);
@@ -91,11 +92,12 @@ void initMotor() {
 	return;
 }
 
-void setBuzzer(int duty) {
+void setBuzzer(int period) {
 	TIM_HandleStructure.Instance = TIM3;
+	TIM_HandleStructure.Init.Period = period;
 	HAL_TIM_PWM_Init(&TIM_HandleStructure);
 
-	__HAL_TIM_SetCompare(&TIM_HandleStructure, TIM_CHANNEL_1, duty);
+	__HAL_TIM_SetCompare(&TIM_HandleStructure, TIM_CHANNEL_1, period/2);
 }
 
 void setDirection(int channel, int direction) {
@@ -136,6 +138,7 @@ void setDirection(int channel, int direction) {
 
 void setSpeed(int channel, int speed) {
 	TIM_HandleStructure.Instance = TIM4;
+	TIM_HandleStructure.Init.Period = PERIOD;
 	HAL_TIM_PWM_Init(&TIM_HandleStructure);
 	speed = PERIOD - speed;
 	switch (channel) {
