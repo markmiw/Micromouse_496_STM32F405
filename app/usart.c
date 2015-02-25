@@ -3,6 +3,9 @@
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_rcc.h"
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_usart.h"
 
+#include "usart.h"
+#include "adc.h"
+
 //Data structure for USART configuration
 USART_HandleTypeDef USART_HandleStructure;
 
@@ -42,4 +45,38 @@ void initUSART() {
 	USART_HandleStructure.Init.CLKLastBit = USART_LASTBIT_ENABLE;
 
 	HAL_USART_Init(&USART_HandleStructure);
+}
+
+void sensorUSART(int sensor) {
+
+	int test;
+	int i;
+	int digLen = 1;
+	char c = 0x0d;
+	char dig = '0';
+	char digit[SENSOR];
+
+	/* Load 'x' values into all array locations */
+	for(i = 0; i < SENSOR; i++) {
+		digit[i] = 'x';
+	}
+
+	test = readADC(sensor);
+
+	for(i = 10; i < 1000000000; i*=10) {
+		if(test > i) digLen++;
+	}
+
+	/* break down integer value to single digits to place into array */
+	for(i = 0; i < digLen; i++) {
+		digit[SENSOR-1-i] = dig + test%10;
+		test/=10;
+	}
+
+	HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Left Sensor:", 12, 1000);
+	HAL_Delay(500);
+	HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&digit, SENSOR, 1000);
+	HAL_Delay(500);
+	HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&c, 1, 1000);
+	HAL_Delay(500);
 }

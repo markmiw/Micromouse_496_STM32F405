@@ -11,6 +11,7 @@
 #include "motor.h"
 #include "stm32f4xx_it.h"
 #include "usart.h"
+#include <string.h>
 
 //Private prototypes
 void testChaser(int mode, int period);
@@ -30,13 +31,10 @@ void main(void) {
 
 	extern USART_HandleTypeDef USART_HandleStructure;
 
-	int x;
-	uint8_t test = 0xFF;
-
 	//LED start up sequence
 	testChaser(1, 250);
 
-	HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Hello", 5, 1000);
+	sensorUSART(LEFT_DET);
 
 	//Main program loop
 	while (1) {
