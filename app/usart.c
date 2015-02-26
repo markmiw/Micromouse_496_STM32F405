@@ -72,9 +72,40 @@ void sensorUSART(int sensor) {
 		digit[SENSOR-1-i] = dig + test%10;
 		test/=10;
 	}
+    switch (sensor) {
+        case 0:
+            HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Left Sensor:", 12, 1000);
+            HAL_Delay(500);
+            break;
+        case 1:
+            HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Left Middle Sensor:", 19, 1000);
+            HAL_Delay(500);
+            break;
+        case 2:
+            HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Right Middle Sensor:", 20, 1000);
+            HAL_Delay(500);
+            break;
+        case 3:
+            HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Right Sensor:", 13, 1000);
+            HAL_Delay(500);
+            break;
+        case 4:
+            HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Voltage:", 8, 1000);
+            HAL_Delay(500);
+            break;
+        case 5:
+            HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Gyroscope:", 10, 1000);
+            HAL_Delay(500);
+            break;
+            
+        default:
+            HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Wrong Input", 11, 1000);
+            HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&c, 1, 1000);
+            HAL_Delay(500);
+            return;
+            break;
+    }
 
-	HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Left Sensor:", 12, 1000);
-	HAL_Delay(500);
 	HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&digit, SENSOR, 1000);
 	HAL_Delay(500);
 	HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&c, 1, 1000);
