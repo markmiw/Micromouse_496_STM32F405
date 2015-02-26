@@ -6,3 +6,4 @@
 
 void initUSART();
 void sensorUSART(int sensor);
+void fullSensorUSART();

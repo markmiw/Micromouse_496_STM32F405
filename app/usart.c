@@ -6,6 +6,8 @@
 #include "usart.h"
 #include "adc.h"
 
+#define TRANS_DELAY 500
+
 //Data structure for USART configuration
 USART_HandleTypeDef USART_HandleStructure;
 
@@ -47,6 +49,10 @@ void initUSART() {
 	HAL_USART_Init(&USART_HandleStructure);
 }
 
+void fullSensorUSART() {
+    
+}
+
 void sensorUSART(int sensor) {
 
 	int test;
@@ -62,8 +68,13 @@ void sensorUSART(int sensor) {
 	}
 
 	test = readADC(sensor);
-
-	for(i = 10; i < 1000000000; i*=10) {
+    int length = 1;
+    
+    for (i = 0; i < SENSOR; i++) {
+        length*=10;
+    }
+    
+	for(i = 10; i < length; i*=10) {
 		if(test > i) digLen++;
 	}
 
@@ -72,42 +83,43 @@ void sensorUSART(int sensor) {
 		digit[SENSOR-1-i] = dig + test%10;
 		test/=10;
 	}
+    
     switch (sensor) {
         case 0:
             HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Left Sensor:", 12, 1000);
-            HAL_Delay(500);
+            HAL_Delay(TRANS_DELAY);
             break;
         case 1:
             HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Left Middle Sensor:", 19, 1000);
-            HAL_Delay(500);
+            HAL_Delay(TRANS_DELAY);
             break;
         case 2:
             HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Right Middle Sensor:", 20, 1000);
-            HAL_Delay(500);
+            HAL_Delay(TRANS_DELAY);
             break;
         case 3:
             HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Right Sensor:", 13, 1000);
-            HAL_Delay(500);
+            HAL_Delay(TRANS_DELAY);
             break;
         case 4:
             HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Voltage:", 8, 1000);
-            HAL_Delay(500);
+            HAL_Delay(TRANS_DELAY);
             break;
         case 5:
             HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Gyroscope:", 10, 1000);
-            HAL_Delay(500);
+            HAL_Delay(TRANS_DELAY);
             break;
             
         default:
             HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"Wrong Input", 11, 1000);
             HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&c, 1, 1000);
-            HAL_Delay(500);
+            HAL_Delay(TRANS_DELAY);
             return;
             break;
     }
 
 	HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&digit, SENSOR, 1000);
-	HAL_Delay(500);
+	HAL_Delay(TRANS_DELAY);
 	HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&c, 1, 1000);
-	HAL_Delay(500);
+	HAL_Delay(TRANS_DELAY);
 }
