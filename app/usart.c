@@ -50,7 +50,11 @@ void initUSART() {
 }
 
 void fullSensorUSART() {
+    int i;
     
+    for (i = 0; i < 5; i++) {
+        sensorUSART(i);
+    }
 }
 
 void sensorUSART(int sensor) {
