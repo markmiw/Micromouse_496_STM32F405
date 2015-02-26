@@ -6,7 +6,7 @@
 #include "usart.h"
 #include "adc.h"
 
-#define TRANS_DELAY 500
+#define TRANS_DELAY 200
 
 //Data structure for USART configuration
 USART_HandleTypeDef USART_HandleStructure;
@@ -50,10 +50,49 @@ void initUSART() {
 }
 
 void fullSensorUSART() {
-    int i;
-    
-    for (i = 0; i < 5; i++) {
-        sensorUSART(i);
+
+	int test;
+	int i;
+	int j;
+	int k;
+	int digLen = 1;
+	char c = 0x0d;
+	char dig = '0';
+	char digit[SENSOR];
+	int length = 1;
+
+	/* Load 'x' values into all array locations */
+	for(i = 0; i < SENSOR; i++) {
+		digit[i] = 'x';
+	}
+
+    for (i = 0; i < SENSOR; i++) {
+        length*=10;
+    }
+
+    HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"L_S       LM_S    RM_S    R_S     VREF", 38, 1000);
+    HAL_Delay(TRANS_DELAY*2);
+    HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&c, 1, 1000);
+    HAL_Delay(TRANS_DELAY);
+    for(j = 0; j < 5; j++) {
+    	for(i = 0; i < 5; i++) {
+    	    test = readADC(i);
+    		for(k = 10; k < length; k*=10) {
+    			if(test > k) digLen++;
+    		}
+
+    		/* break down integer value to single digits to place into array */
+    		for(k = 0; k < digLen; k++) {
+    			digit[SENSOR-1-k] = dig + test%10;
+    			test/=10;
+    		}
+    		HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&digit, SENSOR, 1000);
+    		HAL_Delay(TRANS_DELAY);
+    		HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&"     ", 5, 1000);
+    		HAL_Delay(TRANS_DELAY);
+    	}
+    	HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&c, 1, 1000);
+    	HAL_Delay(TRANS_DELAY);
     }
 }
 

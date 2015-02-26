@@ -27,7 +27,7 @@
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/felix/Documents/GitHub/TSM_HAL/app/main.c" title="main.c" tooltip="C:/Users/felix/Documents/GitHub/TSM_HAL/app/main.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/felix/Documents/GitHub/TSM_HAL/app/main.c" title="main.c" tooltip="C:/Users/felix/Documents/GitHub/TSM_HAL/app/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1026" selectionTopPixel="405"/>
 </editor>
@@ -75,7 +75,7 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/usart.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="166" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" partName="usart.c" path="C:/Users/felix/Documents/GitHub/TSM_HAL/app/usart.c" title="usart.c" tooltip="C:/Users/felix/Documents/GitHub/TSM_HAL/app/usart.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" partName="usart.c" path="C:/Users/felix/Documents/GitHub/TSM_HAL/app/usart.c" title="usart.c" tooltip="C:/Users/felix/Documents/GitHub/TSM_HAL/app/usart.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/usart.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1943" selectionTopPixel="862"/>
 </editor>
@@ -140,8 +140,8 @@
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryBrowserAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showVariablesAction"/>
 <hide_menu_item_id id="org.coocox.builder.ui.openProjectExplorerAction"/>
-<hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
 <hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
+<hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showRegistersAction"/>
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
@@ -211,13 +211,9 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/usart.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/usart.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/adc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/motor.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/main.c"/>
 </editors>
-<item historyLabel="debug.h" index="3">
-<position info="not_deleted" x="164" y="0"/>
-</item>
-<item historyLabel="motor.h" index="4">
-<position info="not_deleted" x="137" y="0"/>
-</item>
 <item historyLabel="adc.h" index="1">
 <position info="not_deleted" x="0" y="98"/>
 </item>
@@ -359,8 +355,14 @@
 <item historyLabel="usart.h" index="6">
 <position info="not_deleted" x="166" y="0"/>
 </item>
-<item active="true" historyLabel="usart.c" index="7">
+<item historyLabel="usart.c" index="7">
 <position/>
+</item>
+<item historyLabel="motor.c" index="9">
+<position info="not_deleted" x="2831" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="10">
+<position info="not_deleted" x="1026" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -369,6 +371,11 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
+<persistable>
+<org.coocox.welcome.ui.WelcomePage/>
+</persistable>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" tooltip="TSM_HAL/usart.c">
 <persistable path="/TSM_HAL/usart.c"/>
 </file>
@@ -383,11 +390,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal.c" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal.c">
 <persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal.c"/>
-</file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
-<persistable>
-<org.coocox.welcome.ui.WelcomePage/>
-</persistable>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="motor.h" tooltip="TSM_HAL/motor.h">
 <persistable path="/TSM_HAL/motor.h"/>

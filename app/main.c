@@ -34,7 +34,7 @@ void main(void) {
 	//LED start up sequence
 	testChaser(1, 250);
 
-	sensorUSART(LEFT_DET);
+	fullSensorUSART();
 
 	//Main program loop
 	while (1) {
