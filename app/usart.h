@@ -7,3 +7,4 @@
 void initUSART();
 void sensorUSART(int sensor);
 void fullSensorUSART();
+void printUSART(int value);
