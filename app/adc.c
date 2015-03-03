@@ -110,10 +110,32 @@ void initADC() {
 	return;
 }
 
+uint32_t readBattery() {
+    ADC_ChannelConfTypeDef sConfig;
+    
+    //Voltage detector
+    sConfig.Channel = ADC_CHANNEL_9;
+    sConfig.Rank = 1;
+    sConfig.SamplingTime = ADC_SAMPLETIME_28CYCLES;
+    sConfig.Offset = 0;
+    HAL_ADC_ConfigChannel(&ADCHandle, &sConfig);
+
+    HAL_delay(10);
+    
+    HAL_ADC_Start(&ADCHandle);
+    
+    //Wait for conversion
+    while(HAL_ADC_PollForConversion(&ADCHandle, HAL_MAX_DELAY) != HAL_OK);
+    
+    while(i--);;
+    
+    return HAL_ADC_GetValue(&ADCHandle);
+}
+
 uint32_t readADC(int channel) {
 	ADC_ChannelConfTypeDef sConfig;
-
-	int var;
+    
+    int i = 1280;
 
 	switch (channel) {
 		case LEFT_DET:
@@ -152,18 +174,10 @@ uint32_t readADC(int channel) {
 			HAL_ADC_ConfigChannel(&ADCHandle, &sConfig);
 			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_SET);
 			break;
-		case VOLT_DET:
-			//Voltage detector
-			sConfig.Channel = ADC_CHANNEL_9;
-			sConfig.Rank = 1;
-			sConfig.SamplingTime = ADC_SAMPLETIME_28CYCLES;
-			sConfig.Offset = 0;
-			HAL_ADC_ConfigChannel(&ADCHandle, &sConfig);
-			break;
-		case GYRO:
-
-			break;
-	} HAL_Delay(10);
+	}
+    // Wait 8us
+    while(i--);
+    i = 1280;
 
 	HAL_ADC_Start(&ADCHandle);
 
@@ -173,6 +187,9 @@ uint32_t readADC(int channel) {
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOH, GPIO_PIN_0, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_RESET);
+    
+    while(i--);;
+    
 	return HAL_ADC_GetValue(&ADCHandle);
 }
 
