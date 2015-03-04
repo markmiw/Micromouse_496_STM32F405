@@ -24,44 +24,42 @@ void batteryFault();
 void main(void) {
 	HAL_Init();
 	initLED();
+	initUSART();
 	initMotor();
 	initEncoder();
 	initADC();
-	initUSART();
-
-	extern USART_HandleTypeDef USART_HandleStructure;
 
 	//LED start up sequence
 	testChaser(1, 250);
-	printStringUSART("Debug: Starting Mouse");
-	printNL();
-	printStringUSART("Left Center Sensor");
-	printNL();
-	int sensor;
-	int battery;
-	int round = 0;
 
+	int leftSensor;
+	int rightSensor;
+	int battery;
+	int i = 200;
 	//Main program loop
 	while (1) {
+
 		//Check for a low battery fault
 		batteryFault();
-
-		printStringUSART("Round: ");
-		printUSART(round);
-		printNL();
-		round++;
 		//User code
-		int i;
-		for(i = 0; i < 10; i++) {
-		sensor = readADC(LEFT_CEN_DET);
+		leftSensor = readADC(LEFT_DET);
+		rightSensor = readADC(RIGHT_DET);
 		battery = readBattery();
-		printUSART(sensor);
+		printUSART(leftSensor);
+		printStringUSART(",");
+		printUSART(rightSensor);
 		printStringUSART(",");
 		printUSART(battery);
+		printStringUSART(",");
+		printStringUSART("15");
 		printNL();
-		}
-		printNL();
-		HAL_Delay(10000);
+		toggleLED(GREEN);
+		setSpeed(RIGHTMOTOR,i);
+		setSpeed(LEFTMOTOR,i);
+		i--;
+		toggleLED(RED);
+		HAL_Delay(1000);
+		toggleLED(WHITE);
 	}
 
     return;

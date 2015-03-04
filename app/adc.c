@@ -6,6 +6,7 @@
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_rcc.h"
 
 #include "adc.h"
+#include "led.h"
 
 ADC_HandleTypeDef ADCHandle;
 
@@ -120,13 +121,10 @@ uint32_t readBattery() {
     sConfig.Offset = 0;
     HAL_ADC_ConfigChannel(&ADCHandle, &sConfig);
 
-    HAL_Delay(10);
-    
     HAL_ADC_Start(&ADCHandle);
-    
     //Wait for conversion
     while(HAL_ADC_PollForConversion(&ADCHandle, HAL_MAX_DELAY) != HAL_OK);
-    
+
     return HAL_ADC_GetValue(&ADCHandle);
 }
 
