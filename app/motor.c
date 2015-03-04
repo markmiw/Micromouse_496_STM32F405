@@ -8,16 +8,21 @@
 
 //Data structure for TIM configuration
 TIM_HandleTypeDef buzzerHandler;
-TIM_HandleTypeDef counterHandler;
+TIM_HandleTypeDef leftHandler;
+TIM_HandleTypeDef rightHandler;
 TIM_HandleTypeDef motorHandler;
 TIM_OC_InitTypeDef sConfig;
 
 static int leftMotorSpeed;
 static int rightMotorSpeed;
+static int countLeft;
+static int countRight;
 
 void initMotor() {
 	leftMotorSpeed  = 0;
 	rightMotorSpeed = 0;
+	countLeft       = 0;
+	countRight      = 0;
 
 	//Data structure for GPIO configuration
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -26,9 +31,10 @@ void initMotor() {
 	__GPIOB_CLK_ENABLE();
 
 	//Enable TIM clock for PWM (2 & 3 & 4)
-	__TIM2_CLK_ENABLE(); //TIM for counter
+	__TIM2_CLK_ENABLE(); //TIM for countLeft
 	__TIM3_CLK_ENABLE(); //TIM for buzzer
 	__TIM4_CLK_ENABLE(); //TIM for motors
+	__TIM5_CLK_ENABLE(); //TIM for countRight
 
 	//Configure data structure for GPIO output
 	GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
@@ -82,12 +88,33 @@ void initMotor() {
 	buzzerHandler.Init.Prescaler = 0;
 	buzzerHandler.Init.ClockDivision = 0;
 	buzzerHandler.Init.CounterMode = TIM_COUNTERMODE_DOWN;
-	HAL_TIM_PWM_Init(&buzzerHandler);
 
 	HAL_TIM_Base_Init(&buzzerHandler);
 	HAL_TIM_Base_Stop_IT(&buzzerHandler);
 
 	HAL_NVIC_EnableIRQ(TIM3_IRQn);
+
+	//Configure TIM for countLeft
+	leftHandler.Instance = TIM2;
+	leftHandler.Init.Period = 42000;
+	leftHandler.Init.Prescaler = 0;
+	leftHandler.Init.ClockDivision = 0;
+	leftHandler.Init.CounterMode = TIM_COUNTERMODE_DOWN;
+
+	HAL_TIM_Base_Init(&leftHandler);
+	HAL_TIM_Base_Stop_IT(&leftHandler);
+
+	HAL_NVIC_EnableIRQ(TIM2_IRQn);
+
+	//Configure TIM for countRight
+	rightHandler.Instance = TIM5;
+	rightHandler.Init.Period = 42000;
+	rightHandler.Init.Prescaler = 0;
+	rightHandler.Init.ClockDivision = 0;
+	rightHandler.Init.CounterMode = TIM_COUNTERMODE_DOWN;
+
+	HAL_TIM_Base_Init(&rightHandler);
+	HAL_TIM_Base_Stop_IT(&rightHandler);
 
 	setDirection(LEFTMOTOR, FORWARD);
 	setDirection(RIGHTMOTOR, FORWARD);
@@ -181,5 +208,16 @@ void toggleDirection(int channel) {
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if (htim->Instance == TIM3) {
 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
+	} else if (htim->Instance == TIM2) {
+		countLeft++;
+		if (countLeft >= 4) {
+			countLeft = 0;
+
+		}
+	} else if (htim->Instance == TIM5) {
+		countRight++;
+		if (countRight >= 4) {
+			countRight = 0;
+		}
 	}
 }
