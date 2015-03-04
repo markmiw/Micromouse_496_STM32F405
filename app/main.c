@@ -34,34 +34,14 @@ void main(void) {
 	//LED start up sequence
 	testChaser(1, 250);
 
-	int leftSensor;
-	int rightSensor;
-	int battery;
-	int i = 600;
-	//Main program loop
 	while (1) {
-
 		//Check for a low battery fault
 		batteryFault();
-		//User code
-		leftSensor = readADC(LEFT_DET);
-		rightSensor = readADC(RIGHT_DET);
-		battery = readBattery();
-		printUSART(leftSensor);
-		printStringUSART(",");
-		printUSART(rightSensor);
-		printStringUSART(",");
-		printUSART(battery);
-		printStringUSART(",");
-		printStringUSART("15");
-		printNL();
-		toggleLED(GREEN);
-		setSpeed(RIGHTMOTOR,i);
-		setSpeed(LEFTMOTOR,i);
-		i--;
-		toggleLED(RED);
+
+		setBuzzer(ON);
 		HAL_Delay(1000);
-		toggleLED(WHITE);
+		setBuzzer(OFF);
+		HAL_Delay(1000);
 	}
 
     return;
@@ -167,7 +147,7 @@ void batteryFault() {
 		setSpeed(LEFTMOTOR, 0);
 		setSpeed(RIGHTMOTOR, 0);
 		//Enable buzzer
-		setBuzzer(4000);
+		setBuzzer(ON);
 		//Disable all LEDs
 		setLEDAll(OFF);
 		//Flash red LED every half second.
