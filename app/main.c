@@ -36,9 +36,6 @@ void main(void) {
 	while (1) {
 		//Check for a low battery fault
 		batteryFault();
-
-		//User code
-
 	}
 
     return;
@@ -135,7 +132,7 @@ void testRamp(int maxSpeed, int period) {
 
 void batteryFault() {
 	//Take a reading from the voltage detector
-	uint32_t batteryLevel = readADC(VOLT_DET);
+	uint32_t batteryLevel = readBattery();
 	//Check to see if voltage level is above 7V
 	//Voltage detector is a voltage divider where 7V is measured as 2.3333V
 	//2.3333V translate to roughly 2333 from the 12 bit ADC

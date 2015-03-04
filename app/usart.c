@@ -97,30 +97,29 @@ void fullSensorUSART() {
 }
 
 void printUSART(int value) {
-    int i;
+    int k;
     int digLen = 1;
     char dig = '0';
-    int length = 10000000000;
-    
-    for(i = 10; i < length; i*=10) {
-        if(value > i) digLen++;
+    char digit[10];
+
+    for(k = 10; k < value; k*=10) {
+        digLen++;
     }
-    
-    int digit[digLen];
-    
-    for(i = 0; i < digLen; i++) {
-        digit[digLen - 1 - i] = dig + value%10;
+
+    for(k = 0; k < digLen; k++) {
+        digit[digLen-1-k] = dig + value%10;
         value/=10;
     }
+
     HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&digit, digLen, 1000);
     HAL_Delay(TRANS_DELAY);
 }
 
 void printStringUSART(char *c) {
     int length;
-    length = sizeof(c);
+    length = strlen(c);
     
-    HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&c, length, 1000);
+    HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)c, length, 1000);
     HAL_Delay(TRANS_DELAY);
 }
 

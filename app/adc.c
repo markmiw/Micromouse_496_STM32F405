@@ -120,21 +120,19 @@ uint32_t readBattery() {
     sConfig.Offset = 0;
     HAL_ADC_ConfigChannel(&ADCHandle, &sConfig);
 
-    HAL_delay(10);
+    HAL_Delay(10);
     
     HAL_ADC_Start(&ADCHandle);
     
     //Wait for conversion
     while(HAL_ADC_PollForConversion(&ADCHandle, HAL_MAX_DELAY) != HAL_OK);
     
-    while(i--);;
-    
     return HAL_ADC_GetValue(&ADCHandle);
 }
 
 uint32_t readADC(int channel) {
 	ADC_ChannelConfTypeDef sConfig;
-    
+
     int i = 1280;
 
 	switch (channel) {
@@ -188,7 +186,7 @@ uint32_t readADC(int channel) {
 	HAL_GPIO_WritePin(GPIOH, GPIO_PIN_0, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_RESET);
     
-    while(i--);;
+    while(i--);
     
 	return HAL_ADC_GetValue(&ADCHandle);
 }
