@@ -4,9 +4,11 @@
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_tim.h"
 
 #include "motor.h"
+#include "led.h"
 
 //Data structure for TIM configuration
 static TIM_HandleTypeDef TIM_HandleStructure;
+static TIM_HandleTypeDef TIM2_HandleStructure;
 static TIM_OC_InitTypeDef sConfig;
 
 typedef struct {
@@ -15,9 +17,12 @@ typedef struct {
 
 motor leftMotor, rightMotor;
 
+int count;
+
 void initMotor() {
 	leftMotor.speed = 0;
 	rightMotor.speed = 0;
+	count = 0;
 
 	//Data structure for GPIO configuration
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -25,7 +30,8 @@ void initMotor() {
 	//Enable GPIO clock for LED module (B)
 	__GPIOB_CLK_ENABLE();
 
-	//Enable TIM clock for PWM (3 & 4)
+	//Enable TIM clock for PWM (2 & 3 & 4)
+	__TIM2_CLK_ENABLE();
 	__TIM3_CLK_ENABLE();
 	__TIM4_CLK_ENABLE();
 
@@ -68,6 +74,13 @@ void initMotor() {
 	TIM_HandleStructure.Init.CounterMode = TIM_COUNTERMODE_DOWN;
 	HAL_TIM_PWM_Init(&TIM_HandleStructure);
 
+	TIM2_HandleStructure.Instance = TIM2;
+	TIM2_HandleStructure.Init.Period = 16000;
+	TIM2_HandleStructure.Init.Prescaler = 0;
+	TIM2_HandleStructure.Init.ClockDivision = 0;
+	TIM2_HandleStructure.Init.CounterMode = TIM_COUNTERMODE_DOWN;
+	HAL_TIM_Base_Init(&TIM2_HandleStructure);
+
 	sConfig.OCMode = TIM_OCMODE_PWM1;
 	sConfig.OCPolarity = TIM_OCPOLARITY_HIGH;
 	sConfig.Pulse = 0;
@@ -77,6 +90,7 @@ void initMotor() {
 
 	HAL_TIM_PWM_Start(&TIM_HandleStructure, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&TIM_HandleStructure, TIM_CHANNEL_3);
+	HAL_TIM_Base_Start_IT(&TIM2_HandleStructure);
 
 	TIM_HandleStructure.Instance = TIM3;
 	TIM_HandleStructure.Init.Period = 4000;
@@ -175,3 +189,19 @@ void toggleDirection(int channel) {
 	return;
 }
 
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	count++;
+
+	if (count == 1) {
+		setLED(BLUE, ON);
+	}
+
+	if (count == 2) {
+		setLED(GREEN, ON);
+	}
+
+	if (count >= 1000) {
+		count = 0;
+		toggleLED(WHITE);
+	}
+}

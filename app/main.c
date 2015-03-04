@@ -29,12 +29,8 @@ void main(void) {
 	initADC();
 	initUSART();
 
-	extern USART_HandleTypeDef USART_HandleStructure;
-
 	//LED start up sequence
 	testChaser(1, 250);
-
-	fullSensorUSART();
 
 	//Main program loop
 	while (1) {

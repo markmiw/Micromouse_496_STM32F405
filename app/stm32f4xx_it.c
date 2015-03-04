@@ -7,15 +7,11 @@
 
 #include "encoder.h"
 
-//extern ADC_HandleTypeDef ADCHandle;
+extern TIM_HandleTypeDef TIM2_HandleStructure;
 
 void SysTick_Handler(void) {
   HAL_IncTick();
 }
-
-//void ADC_IRQHandler(void) {
-//	HAL_ADC_IRQHandler(&ADCHandle);
-//}
 
 void EXTI3_IRQHandler(void) {
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
@@ -23,4 +19,8 @@ void EXTI3_IRQHandler(void) {
 
 void EXTI0_IRQHandler(void) {
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+}
+
+void TIM2_IRQHandler(void) {
+	HAL_TIM_IRQHandler(&TIM2_HandleStructure);
 }
