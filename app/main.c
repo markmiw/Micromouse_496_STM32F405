@@ -33,16 +33,35 @@ void main(void) {
 
 	//LED start up sequence
 	testChaser(1, 250);
-
-	fullSensorUSART();
+	printStringUSART("Debug: Starting Mouse");
+	printNL();
+	printStringUSART("Left Center Sensor");
+	printNL();
+	int sensor;
+	int battery;
+	int round = 0;
 
 	//Main program loop
 	while (1) {
 		//Check for a low battery fault
 		batteryFault();
 
+		printStringUSART("Round: ");
+		printUSART(round);
+		printNL();
+		round++;
 		//User code
-
+		int i;
+		for(i = 0; i < 10; i++) {
+		sensor = readADC(LEFT_CEN_DET);
+		battery = readBattery();
+		printUSART(sensor);
+		printStringUSART(",");
+		printUSART(battery);
+		printNL();
+		}
+		printNL();
+		HAL_Delay(10000);
 	}
 
     return;
@@ -139,7 +158,7 @@ void testRamp(int maxSpeed, int period) {
 
 void batteryFault() {
 	//Take a reading from the voltage detector
-	uint32_t batteryLevel = readADC(VOLT_DET);
+	uint32_t batteryLevel = readBattery();
 	//Check to see if voltage level is above 7V
 	//Voltage detector is a voltage divider where 7V is measured as 2.3333V
 	//2.3333V translate to roughly 2333 from the 12 bit ADC
