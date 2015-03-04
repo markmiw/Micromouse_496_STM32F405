@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g2 -Map=TSM_HAL.map -O0 --gc-sections -LC:\Users\felix\AppData\Roaming\CooCox\CoIDE\configuration\ProgramData\TSM_HAL -TC:\Users\felix\AppData\Roaming\CooCox\CoIDE\configuration\ProgramData\TSM_HAL/arm-gcc-link.ld -g">
-      <target file="TSM_HAL.elf" lastModified="14be3817d30">
+      <target file="TSM_HAL.elf" lastModified="14be39c55b4">
          <source file="..\obj\stm32f4xx_ll_usb.o" lastModified="14be25499a0"/>
          <source file="..\obj\stm32f4xx_hal_rtc.o" lastModified="14be2549462"/>
          <source file="..\obj\stm32f4xx_ll_fsmc.o" lastModified="14be2549388"/>
@@ -32,7 +32,7 @@
          <source file="..\obj\stm32f4xx_hal_adc.o" lastModified="14be254abc8"/>
          <source file="..\obj\stm32f4xx_hal_wwdg.o" lastModified="14be254bcc9"/>
          <source file="..\obj\stm32f4xx_hal_pcd_ex.o" lastModified="14be254af51"/>
-         <source file="..\obj\main.o" lastModified="14be3817aa1"/>
+         <source file="..\obj\main.o" lastModified="14be39c520c"/>
          <source file="..\obj\stm32f4xx_hal.o" lastModified="14be254a60e"/>
          <source file="..\obj\stm32f4xx_hal_can.o" lastModified="14be2549fb8"/>
          <source file="..\obj\stm32f4xx_hal_rng.o" lastModified="14be25490d9"/>
@@ -63,7 +63,7 @@
          <source file="..\obj\stm32f4xx_hal_i2c_ex.o" lastModified="14be254b099"/>
          <source file="..\obj\stm32f4xx_hal_nor.o" lastModified="14be254b164"/>
          <source file="..\obj\stm32f4xx_hal_cryp.o" lastModified="14be254aeb5"/>
-         <source file="..\obj\adc.o" lastModified="14be36b6f6b"/>
+         <source file="..\obj\adc.o" lastModified="14be390fa77"/>
          <source file="..\obj\led.o" lastModified="14be254978d"/>
          <source file="..\obj\stm32f4xx_hal_nand.o" lastModified="14be254b21f"/>
          <source file="..\obj\stm32f4xx_hal_dma_ex.o" lastModified="14be254a68b"/>

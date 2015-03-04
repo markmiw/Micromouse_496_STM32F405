@@ -130,8 +130,8 @@ uint32_t readBattery() {
 
 uint32_t readADC(int channel) {
 	ADC_ChannelConfTypeDef sConfig;
-
-    int i = 1280;
+	int x = 14444;
+    int i = x;
 
 	switch (channel) {
 		case LEFT_DET:
@@ -173,7 +173,7 @@ uint32_t readADC(int channel) {
 	}
     // Wait 8us
     while(i--);
-    i = 1280;
+    i = x;
 
 	HAL_ADC_Start(&ADCHandle);
 

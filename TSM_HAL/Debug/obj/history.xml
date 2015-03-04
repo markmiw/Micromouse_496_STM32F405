@@ -154,8 +154,8 @@
       <target file="stm32f4xx_it.o" lastModified="14be2549d96">
          <source file="..\..\..\app\stm32f4xx_it.c" lastModified="14be24dccff"/>
       </target>
-      <target file="adc.o" lastModified="14be36b6f6b">
-         <source file="..\..\..\app\adc.c" lastModified="14be36b5bbb"/>
+      <target file="adc.o" lastModified="14be390fa77">
+         <source file="..\..\..\app\adc.c" lastModified="14be390568b"/>
       </target>
       <target file="stm32f4xx_hal_gpio.o" lastModified="14be254affd">
          <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_gpio.c" lastModified="14be24dcd44"/>
@@ -166,8 +166,8 @@
       <target file="stm32f4xx_hal_cryp_ex.o" lastModified="14be254b7e9">
          <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_cryp_ex.c" lastModified="14be24dcd28"/>
       </target>
-      <target file="main.o" lastModified="14be3817aa1">
-         <source file="..\..\..\app\main.c" lastModified="14be3816ede"/>
+      <target file="main.o" lastModified="14be39c520c">
+         <source file="..\..\..\app\main.c" lastModified="14be39c3172"/>
       </target>
       <target file="stm32f4xx_hal_iwdg.o" lastModified="14be2549221">
          <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_iwdg.c" lastModified="14be24dcd59"/>

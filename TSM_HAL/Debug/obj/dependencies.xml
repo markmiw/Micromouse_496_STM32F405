@@ -38,7 +38,7 @@
       </source>
       <source file="..\..\..\components\coocox-master\cmsis_core\source\core_cmFunc.h" lastModified="14be24dd5ae">
       </source>
-      <source file="..\..\..\app\adc.c" lastModified="14be36b5bbb">
+      <source file="..\..\..\app\adc.c" lastModified="14be390568b">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_adc.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_cortex.h"/>
