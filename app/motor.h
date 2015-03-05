@@ -11,3 +11,4 @@ void setBuzzer();
 void setDirection(int channel, int direction);
 void setSpeed(int channel, int speed);
 void toggleDirection(int channel);
+void travelDistance(int distance, int maxSpeed, int dt);

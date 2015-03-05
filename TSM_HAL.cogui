@@ -13,71 +13,21 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-<part id="7"/>
-<part id="8"/>
-<part id="9"/>
-<part id="10"/>
-<part id="11"/>
-<part id="12"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/felix/Documents/GitHub/TSM_HAL/app/main.c" title="main.c" tooltip="C:/Users/felix/Documents/GitHub/TSM_HAL/app/main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1024" selectionTopPixel="180"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="adc.c" partName="adc.c" path="C:/Users/felix/Documents/GitHub/TSM_HAL/app/adc.c" title="adc.c" tooltip="C:/Users/felix/Documents/GitHub/TSM_HAL/app/adc.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/adc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="8" selectionOffset="3304" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="adc.h" partName="adc.h" path="C:/Users/felix/Documents/GitHub/TSM_HAL/app/adc.h" title="adc.h" tooltip="C:/Users/felix/Documents/GitHub/TSM_HAL/app/adc.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/adc.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="23" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_adc.c" partName="stm32f4xx_hal_adc.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_adc.c" title="stm32f4xx_hal_adc.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_adc.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_adc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="17" selectionOffset="17417" selectionTopPixel="6495"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_it.c" partName="stm32f4xx_it.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/stm32f4xx_it.c" title="stm32f4xx_it.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/stm32f4xx_it.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/stm32f4xx_it.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="434" selectionTopPixel="11"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_it.h" partName="stm32f4xx_it.h" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/stm32f4xx_it.h" title="stm32f4xx_it.h" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/stm32f4xx_it.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/stm32f4xx_it.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="57" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="motor.c" partName="motor.c" path="C:/Users/felix/Documents/GitHub/TSM_HAL/app/motor.c" title="motor.c" tooltip="C:/Users/felix/Documents/GitHub/TSM_HAL/app/motor.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="motor.c" partName="motor.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.c" title="motor.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/motor.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2831" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7361" selectionTopPixel="3332"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_def.h" partName="stm32f4xx_hal_def.h" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_def.h" title="stm32f4xx_hal_def.h" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_def.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_def.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="6" selectionOffset="2694" selectionTopPixel="945"/>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/main.c" title="main.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1056" selectionTopPixel="2"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="led.c" partName="led.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/led.c" title="led.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/led.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/led.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1469" selectionTopPixel="836"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.c" partName="encoder.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/encoder.c" title="encoder.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/encoder.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/encoder.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1012" selectionTopPixel="195"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="motor.h" partName="motor.h" path="C:/Users/felix/Documents/GitHub/TSM_HAL/app/motor.h" title="motor.h" tooltip="C:/Users/felix/Documents/GitHub/TSM_HAL/app/motor.h" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="motor.h" partName="motor.h" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.h" title="motor.h" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/motor.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="137" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" partName="usart.h" path="C:/Users/felix/Documents/GitHub/TSM_HAL/app/usart.h" title="usart.h" tooltip="C:/Users/felix/Documents/GitHub/TSM_HAL/app/usart.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/usart.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="166" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" partName="usart.c" path="C:/Users/felix/Documents/GitHub/TSM_HAL/app/usart.c" title="usart.c" tooltip="C:/Users/felix/Documents/GitHub/TSM_HAL/app/usart.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/usart.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1943" selectionTopPixel="1132"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -86,6 +36,9 @@
 <expanded>
 <element path="/TSM_HAL"/>
 </expanded>
+<selection>
+<element path="/TSM_HAL/stm32f4xx_it.c"/>
+</selection>
 </viewState>
 </view>
 <view id="org.eclipse.ui.views.ResourceNavigator" partName="Navigator">
@@ -103,8 +56,8 @@
 </view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
-<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 </viewState>
 </view>
 <view id="org.coocox.component.ui.view.ComponentView" partName="Component View">
@@ -140,8 +93,8 @@
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryBrowserAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showVariablesAction"/>
 <hide_menu_item_id id="org.coocox.builder.ui.openProjectExplorerAction"/>
-<hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
 <hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
+<hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showRegistersAction"/>
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
@@ -203,167 +156,159 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/adc.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/debug.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/debug.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/motor.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_tim.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/motor.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/motor.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/usart.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/usart.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/adc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/motor.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/usart.c"/>
 </editors>
-<item historyLabel="debug.h" index="3">
-<position info="not_deleted" x="160" y="0"/>
-</item>
-<item historyLabel="motor.h" index="4">
-<position info="not_deleted" x="137" y="0"/>
-</item>
-<item historyLabel="debug.h" index="3">
-<position info="not_deleted" x="162" y="0"/>
-</item>
-<item historyLabel="debug.c" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="motor.c" index="5">
-<position info="not_deleted" x="2831" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1061" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="0" y="514"/>
-</item>
-<item historyLabel="usart.h" index="6">
-<position info="not_deleted" x="120" y="0"/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="debug.h" index="3">
-<position info="not_deleted" x="0" y="162"/>
-</item>
-<item historyLabel="usart.h" index="6">
-<position info="not_deleted" x="155" y="0"/>
-</item>
-<item historyLabel="debug.h" index="3">
-<position info="not_deleted" x="0" y="162"/>
-</item>
-<item historyLabel="usart.h" index="6">
-<position info="not_deleted" x="155" y="0"/>
-</item>
-<item historyLabel="debug.c" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="usart.h" index="6">
-<position info="not_deleted" x="170" y="0"/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="usart.h" index="6">
-<position info="not_deleted" x="139" y="29"/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position/>
-</item>
-<item historyLabel="usart.h" index="6">
-<position info="not_deleted" x="139" y="29"/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position/>
-</item>
-<item historyLabel="usart.h" index="6">
-<position info="not_deleted" x="139" y="29"/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position info="not_deleted" x="378" y="0"/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position info="not_deleted" x="1711" y="0"/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position/>
+<position info="not_deleted" x="1065" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1065" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1061" y="0"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="6759" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_tim.c" index="2">
+<position info="not_deleted" x="19475" y="0"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="6759" y="0"/>
+</item>
+<item historyLabel="motor.c" index="1">
 <position/>
 </item>
-<item historyLabel="usart.c" index="7">
-<position/>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="7540" y="0"/>
 </item>
-<item historyLabel="usart.c" index="7">
-<position info="not_deleted" x="2465" y="0"/>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="7542" y="0"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="635" y="14"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="659" y="0"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="6480" y="29"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="7141" y="0"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="7038" y="0"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="635" y="14"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="10" y="73"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="96" y="78"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="187" y="77"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="277" y="77"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="369" y="9"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="391" y="5"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="409" y="7"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="479" y="13"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="513" y="11"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="545" y="12"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="578" y="12"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="612" y="7"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="635" y="14"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="663" y="15"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="692" y="9"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="715" y="10"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="692" y="9"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="663" y="15"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="635" y="14"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="10" y="73"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="659" y="0"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="6240" y="14"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="6994" y="0"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="7115" y="0"/>
+</item>
+<item historyLabel="motor.h" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="7038" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="1051" y="0"/>
 </item>
-<item historyLabel="usart.c" index="7">
-<position/>
+<item historyLabel="motor.h" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="7038" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1051" y="0"/>
+<position info="not_deleted" x="1059" y="0"/>
 </item>
-<item historyLabel="usart.c" index="7">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1051" y="0"/>
+<item historyLabel="motor.h" index="3">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1051" y="0"/>
+<position info="not_deleted" x="1059" y="0"/>
 </item>
-<item historyLabel="usart.c" index="7">
-<position/>
+<item historyLabel="motor.c" index="1">
+<position info="not_deleted" x="7361" y="0"/>
 </item>
-<item historyLabel="usart.c" index="7">
-<position/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1051" y="0"/>
-</item>
-<item historyLabel="adc.c" index="8">
-<position info="not_deleted" x="3304" y="8"/>
-</item>
-<item historyLabel="adc.h" index="1">
-<position info="not_deleted" x="23" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1026" y="0"/>
-</item>
-<item historyLabel="usart.h" index="6">
-<position info="not_deleted" x="166" y="0"/>
-</item>
-<item historyLabel="usart.c" index="7">
-<position/>
-</item>
-<item historyLabel="motor.c" index="9">
-<position info="not_deleted" x="2831" y="0"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="1026" y="0"/>
-</item>
-<item active="true" historyLabel="usart.c" index="11">
-<position info="not_deleted" x="1943" y="0"/>
+<item active="true" historyLabel="main.c" index="0">
+<position info="not_deleted" x="1059" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -372,38 +317,14 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" tooltip="TSM_HAL/usart.c">
-<persistable path="/TSM_HAL/usart.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" tooltip="TSM_HAL/usart.h">
-<persistable path="/TSM_HAL/usart.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="debug.h" tooltip="TSM_HAL/debug.h">
-<persistable path="/TSM_HAL/debug.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="debug.c" tooltip="TSM_HAL/debug.c">
-<persistable path="/TSM_HAL/debug.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal.c" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal.c">
-<persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal.c"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="motor.h" tooltip="TSM_HAL/motor.h">
 <persistable path="/TSM_HAL/motor.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.c" tooltip="TSM_HAL/encoder.c">
-<persistable path="/TSM_HAL/encoder.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_tim.c" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_tim.c">
+<persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_tim.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="led.c" tooltip="TSM_HAL/led.c">
-<persistable path="/TSM_HAL/led.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_def.h" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_def.h">
-<persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_def.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="motor.c" tooltip="TSM_HAL/motor.c">
-<persistable path="/TSM_HAL/motor.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="startup_stm32f405xx.S" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/startup_stm32f405xx.S">
-<persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/startup_stm32f405xx.S"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_tim.h" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_tim.h">
+<persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_tim.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_it.h" tooltip="TSM_HAL/stm32f4xx_it.h">
 <persistable path="/TSM_HAL/stm32f4xx_it.h"/>
@@ -411,11 +332,35 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_it.c" tooltip="TSM_HAL/stm32f4xx_it.c">
 <persistable path="/TSM_HAL/stm32f4xx_it.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_cortex.c" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_cortex.c">
-<persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_cortex.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="TSM_HAL/main.c">
+<persistable path="/TSM_HAL/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_cortex.c" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_cortex.c">
-<persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_cortex.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="motor.c" tooltip="TSM_HAL/motor.c">
+<persistable path="/TSM_HAL/motor.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.c" tooltip="TSM_HAL/encoder.c">
+<persistable path="/TSM_HAL/encoder.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc.c" tooltip="TSM_HAL/adc.c">
+<persistable path="/TSM_HAL/adc.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" tooltip="TSM_HAL/usart.c">
+<persistable path="/TSM_HAL/usart.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc.h" tooltip="TSM_HAL/adc.h">
+<persistable path="/TSM_HAL/adc.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" tooltip="TSM_HAL/usart.h">
+<persistable path="/TSM_HAL/usart.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="led.c" tooltip="TSM_HAL/led.c">
+<persistable path="/TSM_HAL/led.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_adc.h" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_adc.h">
+<persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_adc.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_gpio_ex.h" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_gpio_ex.h">
+<persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_gpio_ex.h"/>
 </file>
 </mruList>
 </workbench>

@@ -34,14 +34,14 @@ void main(void) {
 	//LED start up sequence
 	testChaser(1, 250);
 
+	travelDistance(14000, 200, 100);
+
 	while (1) {
 		//Check for a low battery fault
 		batteryFault();
 
-		setBuzzer(ON);
-		HAL_Delay(1000);
-		setBuzzer(OFF);
-		HAL_Delay(1000);
+		toggleLED(BLUE);
+		HAL_Delay(500);
 	}
 
     return;

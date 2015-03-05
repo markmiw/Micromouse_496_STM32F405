@@ -3,6 +3,7 @@
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_rcc.h"
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_tim.h"
 
+#include "encoder.h"
 #include "led.h"
 #include "motor.h"
 
@@ -17,12 +18,17 @@ static int leftMotorSpeed;
 static int rightMotorSpeed;
 static int countLeft;
 static int countRight;
+static int timeFactor;
+static int currentTime;
+static int targetDistance;
 
 void initMotor() {
 	leftMotorSpeed  = 0;
 	rightMotorSpeed = 0;
 	countLeft       = 0;
 	countRight      = 0;
+	timeFactor      = 0;
+	targetDistance  = 0;
 
 	//Data structure for GPIO configuration
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -167,9 +173,6 @@ void setDirection(int channel, int direction) {
 }
 
 void setSpeed(int channel, int speed) {
-	motorHandler.Instance = TIM4;
-	motorHandler.Init.Period = PERIOD;
-	HAL_TIM_PWM_Init(&motorHandler);
 	speed = PERIOD - speed;
 	switch (channel) {
 	case 0: //Left motor
@@ -205,18 +208,74 @@ void toggleDirection(int channel) {
 	return;
 }
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	if (htim->Instance == TIM3) {
-		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
-	} else if (htim->Instance == TIM2) {
-		countLeft++;
-		if (countLeft >= 4) {
-			countLeft = 0;
+/**
+  * @brief  Move the robot a certain distance with ramp ups and ramp downs
+  * @param  distance: 	Number of ticks for the robot to travel
+  * @param  maxSpeed: 	Target speed limit that the robot will not pass
+  * #oaram	dt:			Rate of time between speed increase
+  * @retval Nothing
+  */
+void travelDistance(int distance, int maxSpeed, int dt) {
+	countLeft = 0;
+	currentTime = 0;
+	targetDistance = distance;
+	timeFactor = dt;
+	setSpeed(LEFTMOTOR, 0);
+	setSpeed(RIGHTMOTOR, 0);
+	HAL_TIM_Base_Start_IT(&leftHandler);
+}
 
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	int rightRead;
+	int bufferX, bufferY;
+
+	if (htim->Instance == TIM3)
+	{
+		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
+	}
+
+	else if (htim->Instance == TIM2) //leftHandler
+	{
+		countLeft++;
+		if (countLeft >= 4)
+		{
+			countLeft = 0;
+			currentTime++;
 		}
-	} else if (htim->Instance == TIM5) {
+
+		if (currentTime >= timeFactor)
+		{
+			currentTime = 0;
+			rightRead = readEncoder(RIGHTENCODER);
+			if (rightRead < targetDistance/2)
+			{
+				leftMotorSpeed = leftMotorSpeed - 10;
+				rightMotorSpeed = rightMotorSpeed - 10;
+				setSpeed(LEFTMOTOR, PERIOD - leftMotorSpeed);
+				setSpeed(RIGHTMOTOR, PERIOD - rightMotorSpeed);
+			}
+			else if (rightRead < targetDistance && rightRead >= targetDistance/2)
+			{
+				leftMotorSpeed = leftMotorSpeed + 10;
+				rightMotorSpeed = rightMotorSpeed + 10;
+				setSpeed(LEFTMOTOR, PERIOD - leftMotorSpeed);
+				setSpeed(RIGHTMOTOR, PERIOD - rightMotorSpeed);
+			}
+			else
+			{
+				setSpeed(LEFTMOTOR, 0);
+				setSpeed(RIGHTMOTOR, 0);
+				HAL_TIM_Base_Stop_IT(&leftHandler);
+			}
+		}
+	}
+
+	else if (htim->Instance == TIM5) //rightHandler
+	{
 		countRight++;
-		if (countRight >= 4) {
+		if (countRight >= 4)
+		{
 			countRight = 0;
 		}
 	}
