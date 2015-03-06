@@ -34,14 +34,14 @@ void main(void) {
 	//LED start up sequence
 	testChaser(1, 250);
 
-	travelDistance(14000, 200, 100);
+	printStringUSART("Hello world!");
+	printNL();
 
 	while (1) {
 		//Check for a low battery fault
 		batteryFault();
 
-		toggleLED(BLUE);
-		HAL_Delay(500);
+		testMenu(LEFTENCODER);
 	}
 
     return;
@@ -101,21 +101,17 @@ void testMenu(int channel) {
 	} else if (count >= 0 && count <= 800) {
 		setLED(RED, ON);
 		setLED(GREEN, OFF);
-		setSpeed(1 - channel, 0);
 	} else if (count > 800 && count <= (800*2)) {
 		setLED(RED, OFF);
 		setLED(GREEN, ON);
 		setLED(BLUE, OFF);
-		setSpeed(1 - channel, 30);
 	} else if (count > (800*2) && count <= (800*3)) {
 		setLED(GREEN, OFF);
 		setLED(BLUE, ON);
 		setLED(WHITE, OFF);
-		setSpeed(1 - channel, 60);
 	} else if (count > (800*3) && count <= (800*4)) {
 		setLED(BLUE, OFF);
 		setLED(WHITE, ON);
-		setSpeed(1 - channel, 90);
 	} else if (count > (800*4)) {
 		count = (800*4);
 	}

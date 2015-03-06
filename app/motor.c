@@ -9,26 +9,30 @@
 
 //Data structure for TIM configuration
 TIM_HandleTypeDef buzzerHandler;
-TIM_HandleTypeDef leftHandler;
+TIM_HandleTypeDef countHandler;
 TIM_HandleTypeDef rightHandler;
 TIM_HandleTypeDef motorHandler;
 TIM_OC_InitTypeDef sConfig;
 
 static int leftMotorSpeed;
 static int rightMotorSpeed;
-static int countLeft;
-static int countRight;
-static int timeFactor;
-static int currentTime;
-static int targetDistance;
+static uint8_t countMinor;
+static uint32_t countMajor;
+//static int countLeft;
+//static int countRight;
+//static int timeFactor;
+//static int currentTime;
+//static int targetDistance;
 
 void initMotor() {
 	leftMotorSpeed  = 0;
 	rightMotorSpeed = 0;
-	countLeft       = 0;
-	countRight      = 0;
-	timeFactor      = 0;
-	targetDistance  = 0;
+//	countLeft       = 0;
+//	countRight      = 0;
+//	timeFactor      = 0;
+//	targetDistance  = 0;
+	countMinor = 0;
+	countMajor = 0;
 
 	//Data structure for GPIO configuration
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -101,14 +105,14 @@ void initMotor() {
 	HAL_NVIC_EnableIRQ(TIM3_IRQn);
 
 	//Configure TIM for countLeft
-	leftHandler.Instance = TIM2;
-	leftHandler.Init.Period = 42000;
-	leftHandler.Init.Prescaler = 0;
-	leftHandler.Init.ClockDivision = 0;
-	leftHandler.Init.CounterMode = TIM_COUNTERMODE_DOWN;
+	countHandler.Instance = TIM2;
+	countHandler.Init.Period = 42000;
+	countHandler.Init.Prescaler = 0;
+	countHandler.Init.ClockDivision = 0;
+	countHandler.Init.CounterMode = TIM_COUNTERMODE_DOWN;
 
-	HAL_TIM_Base_Init(&leftHandler);
-	HAL_TIM_Base_Stop_IT(&leftHandler);
+	HAL_TIM_Base_Init(&countHandler);
+	HAL_TIM_Base_Stop_IT(&countHandler);
 
 	HAL_NVIC_EnableIRQ(TIM2_IRQn);
 
@@ -128,83 +132,98 @@ void initMotor() {
 	return;
 }
 
-void setBuzzer(int state) {
-	if (state) {
+void setBuzzer(int state)
+{
+	if (state)
+	{
 		HAL_TIM_Base_Start_IT(&buzzerHandler);
-	} else {
+	}
+	else
+	{
 		HAL_TIM_Base_Stop_IT(&buzzerHandler);
 	}
 }
 
-void setDirection(int channel, int direction) {
-	switch (channel) {
-	case 0: //Left motor
-		if (direction) { //Forward
-			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_RESET) {
+void setDirection(Motor channel, Direction state)
+{
+	if (channel == LEFTMOTOR)
+	{
+		if (state == FORWARD) //Forward
+		{
+			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_RESET)
+			{
 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
-
 				setSpeed(channel, leftMotorSpeed);
 			}
-		} else { //Backward
-			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_SET) {
+		}
+		else //Backward
+		{
+			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_SET)
+			{
 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
 				leftMotorSpeed = PERIOD - leftMotorSpeed;
 				setSpeed(channel, leftMotorSpeed);
 			}
-		} break;
-	case 1: //Right motor
-		if (direction) { //Forward
-			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_RESET) {
+		}
+	}
+	else
+	{
+		if (state == FORWARD) //Forward
+		{
+			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_RESET)
+			{
 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_SET);
-
 				setSpeed(channel, rightMotorSpeed);
 			}
-		} else { //Backward
-			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_SET) {
+		}
+		else //Backward
+		{
+			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_SET)
+			{
 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_RESET);
 				rightMotorSpeed = PERIOD - rightMotorSpeed;
 				setSpeed(channel, rightMotorSpeed);
 			}
-		} break;
-
+		}
 	}
-
 	return;
 }
 
-void setSpeed(int channel, int speed) {
-	speed = PERIOD - speed;
-	switch (channel) {
-	case 0: //Left motor
-		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_RESET) {
+void setSpeed(Motor channel, uint32_t speed)
+{
+	if (channel == LEFTMOTOR)
+	{
+		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_SET)
+		{
 			speed = PERIOD - speed;
-		} leftMotorSpeed = speed;
+		}
+		leftMotorSpeed = speed;
 		__HAL_TIM_SetCompare(&motorHandler, TIM_CHANNEL_1, speed);
-		break;
-	case 1: //Right motor
-		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_RESET) {
-			speed = PERIOD - speed;
-		} rightMotorSpeed = speed;
-		__HAL_TIM_SetCompare(&motorHandler, TIM_CHANNEL_3, speed);
-		break;
 	}
-
-
+	else
+	{
+		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_SET)
+		{
+			speed = PERIOD - speed;
+		}
+		rightMotorSpeed = speed;
+		__HAL_TIM_SetCompare(&motorHandler, TIM_CHANNEL_3, speed);
+	}
 	return;
 }
 
-void toggleDirection(int channel) {
-	switch (channel) {
-	case 0: //Left motor
+void toggleDirection(Motor channel)
+{
+	if (channel == LEFTMOTOR)
+	{
 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
 		setSpeed(channel, leftMotorSpeed);
-		break;
-	case 1: //Right motor
+	}
+	else
+	{
 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_9);
 		setSpeed(channel, rightMotorSpeed);
-		break;
 	}
-
 	return;
 }
 
@@ -215,68 +234,30 @@ void toggleDirection(int channel) {
   * #oaram	dt:			Rate of time between speed increase
   * @retval Nothing
   */
-void travelDistance(int distance, int maxSpeed, int dt) {
-	countLeft = 0;
-	currentTime = 0;
-	targetDistance = distance;
-	timeFactor = dt;
-	setSpeed(LEFTMOTOR, 0);
-	setSpeed(RIGHTMOTOR, 0);
-	HAL_TIM_Base_Start_IT(&leftHandler);
+void travelDistance(int distance, int maxSpeed, int dt)
+{
+
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	int rightRead;
-	int bufferX, bufferY;
-
-	if (htim->Instance == TIM3)
+	if (htim->Instance == TIM3) //Buzzer interrupt
 	{
 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
 	}
 
-	else if (htim->Instance == TIM2) //leftHandler
+	else if (htim->Instance == TIM2) //Counter interrupt
 	{
-		countLeft++;
-		if (countLeft >= 4)
+		countMinor++;
+		if (countMinor >= 4)
 		{
-			countLeft = 0;
-			currentTime++;
-		}
-
-		if (currentTime >= timeFactor)
-		{
-			currentTime = 0;
-			rightRead = readEncoder(RIGHTENCODER);
-			if (rightRead < targetDistance/2)
-			{
-				leftMotorSpeed = leftMotorSpeed - 10;
-				rightMotorSpeed = rightMotorSpeed - 10;
-				setSpeed(LEFTMOTOR, PERIOD - leftMotorSpeed);
-				setSpeed(RIGHTMOTOR, PERIOD - rightMotorSpeed);
-			}
-			else if (rightRead < targetDistance && rightRead >= targetDistance/2)
-			{
-				leftMotorSpeed = leftMotorSpeed + 10;
-				rightMotorSpeed = rightMotorSpeed + 10;
-				setSpeed(LEFTMOTOR, PERIOD - leftMotorSpeed);
-				setSpeed(RIGHTMOTOR, PERIOD - rightMotorSpeed);
-			}
-			else
-			{
-				setSpeed(LEFTMOTOR, 0);
-				setSpeed(RIGHTMOTOR, 0);
-				HAL_TIM_Base_Stop_IT(&leftHandler);
-			}
+			countMinor = 0;
+			countMajor++;
 		}
 	}
 
 	else if (htim->Instance == TIM5) //rightHandler
 	{
-		countRight++;
-		if (countRight >= 4)
-		{
-			countRight = 0;
-		}
+
 	}
 }

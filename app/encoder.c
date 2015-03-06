@@ -26,9 +26,9 @@ void initEncoder() {
 	GPIO_InitStructure.Pull = GPIO_PULLUP;
 	GPIO_InitStructure.Speed = GPIO_SPEED_HIGH;
 
-	//Left encoder channel 1
-	GPIO_InitStructure.Pin = GPIO_PIN_15;
-	HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
+	//Left encoder channel 2
+	GPIO_InitStructure.Pin = GPIO_PIN_3;
+	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
 
 	//Right encoder channel 2
 	GPIO_InitStructure.Pin = GPIO_PIN_1;
@@ -39,16 +39,17 @@ void initEncoder() {
 	GPIO_InitStructure.Pull = GPIO_NOPULL;
 	GPIO_InitStructure.Speed = GPIO_SPEED_HIGH;
 
-	//Left encoder channel 2
-	GPIO_InitStructure.Pin = GPIO_PIN_3;
-	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+	//Left encoder channel 1
+	GPIO_InitStructure.Pin = GPIO_PIN_15;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
 
 	//Right encoder channel 1
 	GPIO_InitStructure.Pin = GPIO_PIN_0;
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
 
 	HAL_NVIC_EnableIRQ(EXTI0_IRQn);
-	HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 	return;
 }
@@ -73,23 +74,30 @@ void resetEncoder(int channel) {
 	}
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	if (GPIO_Pin == GPIO_PIN_0) {
-		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_SET) {
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if (GPIO_Pin == GPIO_PIN_0)
+	{
+		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_SET)
+		{
 			rightCount++;
-		} else {
+		}
+		else
+		{
 			rightCount--;
 		}
-	} else if (GPIO_Pin == GPIO_PIN_3) {
-		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15) == GPIO_PIN_SET) {
+	}
+	else if (GPIO_Pin == GPIO_PIN_15)
+	{
+		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3) == GPIO_PIN_SET)
+		{
 			leftCount++;
-		} else {
+		}
+		else
+		{
 			leftCount--;
 		}
 
-//		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15) == GPIO_PIN_SET) {
-//			toggleLED(RED);
-//		}
-
-	} return;
+	}
+	return;
 }
