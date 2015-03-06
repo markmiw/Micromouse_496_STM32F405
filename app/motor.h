@@ -1,13 +1,20 @@
-#define LEFTMOTOR  0
-#define RIGHTMOTOR 1
-
-#define FORWARD  1
-#define BACKWARD 0
-
 #define PERIOD 600
+
+typedef enum
+{
+	LEFTMOTOR,
+	RIGHTMOTOR
+}Motor;
+
+typedef enum
+{
+	FORWARD,
+	BACKWARD
+}Direction;
 
 void initMotor();
 void setBuzzer();
-void setDirection(int channel, int direction);
-void setSpeed(int channel, int speed);
-void toggleDirection(int channel);
+void setDirection(Motor channel, Direction state);
+void setSpeed(Motor channel, uint32_t speed);
+void toggleDirection(Motor channel);
+void travelDistance(int distance, int maxSpeed, int dt);

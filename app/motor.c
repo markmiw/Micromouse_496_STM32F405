@@ -3,21 +3,36 @@
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_rcc.h"
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_tim.h"
 
+#include "encoder.h"
+#include "led.h"
 #include "motor.h"
 
 //Data structure for TIM configuration
-static TIM_HandleTypeDef TIM_HandleStructure;
-static TIM_OC_InitTypeDef sConfig;
+TIM_HandleTypeDef buzzerHandler;
+TIM_HandleTypeDef countHandler;
+TIM_HandleTypeDef rightHandler;
+TIM_HandleTypeDef motorHandler;
+TIM_OC_InitTypeDef sConfig;
 
-typedef struct {
-	int speed;
-} motor;
-
-motor leftMotor, rightMotor;
+static int leftMotorSpeed;
+static int rightMotorSpeed;
+static uint8_t countMinor;
+static uint32_t countMajor;
+//static int countLeft;
+//static int countRight;
+//static int timeFactor;
+//static int currentTime;
+//static int targetDistance;
 
 void initMotor() {
-	leftMotor.speed = 0;
-	rightMotor.speed = 0;
+	leftMotorSpeed  = 0;
+	rightMotorSpeed = 0;
+//	countLeft       = 0;
+//	countRight      = 0;
+//	timeFactor      = 0;
+//	targetDistance  = 0;
+	countMinor = 0;
+	countMajor = 0;
 
 	//Data structure for GPIO configuration
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -25,9 +40,11 @@ void initMotor() {
 	//Enable GPIO clock for LED module (B)
 	__GPIOB_CLK_ENABLE();
 
-	//Enable TIM clock for PWM (3 & 4)
-	__TIM3_CLK_ENABLE();
-	__TIM4_CLK_ENABLE();
+	//Enable TIM clock for PWM (2 & 3 & 4)
+	__TIM2_CLK_ENABLE(); //TIM for countLeft
+	__TIM3_CLK_ENABLE(); //TIM for buzzer
+	__TIM4_CLK_ENABLE(); //TIM for motors
+	__TIM5_CLK_ENABLE(); //TIM for countRight
 
 	//Configure data structure for GPIO output
 	GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
@@ -42,6 +59,10 @@ void initMotor() {
 	GPIO_InitStructure.Pin = GPIO_PIN_9;
 	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
 
+	//Buzzer
+	GPIO_InitStructure.Pin = GPIO_PIN_4;
+	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
+
 	//Configure data structure for GPIO AF
 	GPIO_InitStructure.Mode = GPIO_MODE_AF_PP;
 	GPIO_InitStructure.Alternate = GPIO_AF2_TIM4;
@@ -54,37 +75,56 @@ void initMotor() {
 	GPIO_InitStructure.Pin = GPIO_PIN_8;
 	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
 
-	GPIO_InitStructure.Alternate = GPIO_AF2_TIM3;
-
-	//Buzzer
-	GPIO_InitStructure.Pin = GPIO_PIN_4;
-	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
-
-	//Configure data structure for TIM handler
-	TIM_HandleStructure.Instance = TIM4;
-	TIM_HandleStructure.Init.Period = PERIOD;
-	TIM_HandleStructure.Init.Prescaler = 0;
-	TIM_HandleStructure.Init.ClockDivision = 0;
-	TIM_HandleStructure.Init.CounterMode = TIM_COUNTERMODE_DOWN;
-	HAL_TIM_PWM_Init(&TIM_HandleStructure);
+	//Configure TIM for motors
+	motorHandler.Instance = TIM4;
+	motorHandler.Init.Period = PERIOD;
+	motorHandler.Init.Prescaler = 0;
+	motorHandler.Init.ClockDivision = 0;
+	motorHandler.Init.CounterMode = TIM_COUNTERMODE_DOWN;
+	HAL_TIM_PWM_Init(&motorHandler);
 
 	sConfig.OCMode = TIM_OCMODE_PWM1;
 	sConfig.OCPolarity = TIM_OCPOLARITY_HIGH;
 	sConfig.Pulse = 0;
 
-	HAL_TIM_PWM_ConfigChannel(&TIM_HandleStructure, &sConfig, TIM_CHANNEL_1);
-	HAL_TIM_PWM_ConfigChannel(&TIM_HandleStructure, &sConfig, TIM_CHANNEL_3);
+	HAL_TIM_PWM_ConfigChannel(&motorHandler, &sConfig, TIM_CHANNEL_1);
+	HAL_TIM_PWM_ConfigChannel(&motorHandler, &sConfig, TIM_CHANNEL_3);
+	HAL_TIM_PWM_Start(&motorHandler, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&motorHandler, TIM_CHANNEL_3);
 
-	HAL_TIM_PWM_Start(&TIM_HandleStructure, TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start(&TIM_HandleStructure, TIM_CHANNEL_3);
+	//Configure TIM for buzzer
+	buzzerHandler.Instance = TIM3;
+	buzzerHandler.Init.Period = 42000;
+	buzzerHandler.Init.Prescaler = 0;
+	buzzerHandler.Init.ClockDivision = 0;
+	buzzerHandler.Init.CounterMode = TIM_COUNTERMODE_DOWN;
 
-	TIM_HandleStructure.Instance = TIM3;
-	TIM_HandleStructure.Init.Period = 4000;
-	HAL_TIM_PWM_Init(&TIM_HandleStructure);
+	HAL_TIM_Base_Init(&buzzerHandler);
+	HAL_TIM_Base_Stop_IT(&buzzerHandler);
 
-	HAL_TIM_PWM_ConfigChannel(&TIM_HandleStructure, &sConfig, TIM_CHANNEL_1);
+	HAL_NVIC_EnableIRQ(TIM3_IRQn);
 
-	HAL_TIM_PWM_Start(&TIM_HandleStructure, TIM_CHANNEL_1);
+	//Configure TIM for countLeft
+	countHandler.Instance = TIM2;
+	countHandler.Init.Period = 42000;
+	countHandler.Init.Prescaler = 0;
+	countHandler.Init.ClockDivision = 0;
+	countHandler.Init.CounterMode = TIM_COUNTERMODE_DOWN;
+
+	HAL_TIM_Base_Init(&countHandler);
+	HAL_TIM_Base_Stop_IT(&countHandler);
+
+	HAL_NVIC_EnableIRQ(TIM2_IRQn);
+
+	//Configure TIM for countRight
+	rightHandler.Instance = TIM5;
+	rightHandler.Init.Period = 42000;
+	rightHandler.Init.Prescaler = 0;
+	rightHandler.Init.ClockDivision = 0;
+	rightHandler.Init.CounterMode = TIM_COUNTERMODE_DOWN;
+
+	HAL_TIM_Base_Init(&rightHandler);
+	HAL_TIM_Base_Stop_IT(&rightHandler);
 
 	setDirection(LEFTMOTOR, FORWARD);
 	setDirection(RIGHTMOTOR, FORWARD);
@@ -92,86 +132,132 @@ void initMotor() {
 	return;
 }
 
-void setBuzzer(int period) {
-	TIM_HandleStructure.Instance = TIM3;
-	TIM_HandleStructure.Init.Period = period;
-	HAL_TIM_PWM_Init(&TIM_HandleStructure);
-
-	__HAL_TIM_SetCompare(&TIM_HandleStructure, TIM_CHANNEL_1, period/2);
+void setBuzzer(int state)
+{
+	if (state)
+	{
+		HAL_TIM_Base_Start_IT(&buzzerHandler);
+	}
+	else
+	{
+		HAL_TIM_Base_Stop_IT(&buzzerHandler);
+	}
 }
 
-void setDirection(int channel, int direction) {
-	switch (channel) {
-	case 0: //Left motor
-		if (direction) { //Forward
-			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_RESET) {
+void setDirection(Motor channel, Direction state)
+{
+	if (channel == LEFTMOTOR)
+	{
+		if (state == FORWARD) //Forward
+		{
+			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_RESET)
+			{
 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
-
-				setSpeed(channel, leftMotor.speed);
+				setSpeed(channel, leftMotorSpeed);
 			}
-		} else { //Backward
-			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_SET) {
+		}
+		else //Backward
+		{
+			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_SET)
+			{
 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
-				leftMotor.speed = PERIOD - leftMotor.speed;
-				setSpeed(channel, leftMotor.speed);
+				leftMotorSpeed = PERIOD - leftMotorSpeed;
+				setSpeed(channel, leftMotorSpeed);
 			}
-		} break;
-	case 1: //Right motor
-		if (direction) { //Forward
-			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_RESET) {
+		}
+	}
+	else
+	{
+		if (state == FORWARD) //Forward
+		{
+			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_RESET)
+			{
 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_SET);
-
-				setSpeed(channel, rightMotor.speed);
+				setSpeed(channel, rightMotorSpeed);
 			}
-		} else { //Backward
-			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_SET) {
+		}
+		else //Backward
+		{
+			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_SET)
+			{
 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_RESET);
-				rightMotor.speed = PERIOD - rightMotor.speed;
-				setSpeed(channel, rightMotor.speed);
+				rightMotorSpeed = PERIOD - rightMotorSpeed;
+				setSpeed(channel, rightMotorSpeed);
 			}
-		} break;
-
+		}
 	}
-
 	return;
 }
 
-void setSpeed(int channel, int speed) {
-	TIM_HandleStructure.Instance = TIM4;
-	TIM_HandleStructure.Init.Period = PERIOD;
-	HAL_TIM_PWM_Init(&TIM_HandleStructure);
-	speed = PERIOD - speed;
-	switch (channel) {
-	case 0: //Left motor
-		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_RESET) {
+void setSpeed(Motor channel, uint32_t speed)
+{
+	if (channel == LEFTMOTOR)
+	{
+		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_SET)
+		{
 			speed = PERIOD - speed;
-		} leftMotor.speed = speed;
-		__HAL_TIM_SetCompare(&TIM_HandleStructure, TIM_CHANNEL_1, speed);
-		break;
-	case 1: //Right motor
-		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_RESET) {
-			speed = PERIOD - speed;
-		} rightMotor.speed = speed;
-		__HAL_TIM_SetCompare(&TIM_HandleStructure, TIM_CHANNEL_3, speed);
-		break;
+		}
+		leftMotorSpeed = speed;
+		__HAL_TIM_SetCompare(&motorHandler, TIM_CHANNEL_1, speed);
 	}
-
-
+	else
+	{
+		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_SET)
+		{
+			speed = PERIOD - speed;
+		}
+		rightMotorSpeed = speed;
+		__HAL_TIM_SetCompare(&motorHandler, TIM_CHANNEL_3, speed);
+	}
 	return;
 }
 
-void toggleDirection(int channel) {
-	switch (channel) {
-	case 0: //Left motor
+void toggleDirection(Motor channel)
+{
+	if (channel == LEFTMOTOR)
+	{
 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
-		setSpeed(channel, leftMotor.speed);
-		break;
-	case 1: //Right motor
-		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_9);
-		setSpeed(channel, rightMotor.speed);
-		break;
+		setSpeed(channel, leftMotorSpeed);
 	}
-
+	else
+	{
+		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_9);
+		setSpeed(channel, rightMotorSpeed);
+	}
 	return;
 }
 
+/**
+  * @brief  Move the robot a certain distance with ramp ups and ramp downs
+  * @param  distance: 	Number of ticks for the robot to travel
+  * @param  maxSpeed: 	Target speed limit that the robot will not pass
+  * #oaram	dt:			Rate of time between speed increase
+  * @retval Nothing
+  */
+void travelDistance(int distance, int maxSpeed, int dt)
+{
+
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim->Instance == TIM3) //Buzzer interrupt
+	{
+		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
+	}
+
+	else if (htim->Instance == TIM2) //Counter interrupt
+	{
+		countMinor++;
+		if (countMinor >= 4)
+		{
+			countMinor = 0;
+			countMajor++;
+		}
+	}
+
+	else if (htim->Instance == TIM5) //rightHandler
+	{
+
+	}
+}

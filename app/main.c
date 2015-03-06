@@ -34,34 +34,14 @@ void main(void) {
 	//LED start up sequence
 	testChaser(1, 250);
 
-	int leftSensor;
-	int rightSensor;
-	int battery;
-	int i = 600;
-	//Main program loop
-	while (1) {
+	printStringUSART("Hello world!");
+	printNL();
 
+	while (1) {
 		//Check for a low battery fault
 		batteryFault();
-		//User code
-		leftSensor = readADC(LEFT_DET);
-		rightSensor = readADC(RIGHT_DET);
-		battery = readBattery();
-		printUSART(leftSensor);
-		printStringUSART(",");
-		printUSART(rightSensor);
-		printStringUSART(",");
-		printUSART(battery);
-		printStringUSART(",");
-		printStringUSART("15");
-		printNL();
-		toggleLED(GREEN);
-		setSpeed(RIGHTMOTOR,i);
-		setSpeed(LEFTMOTOR,i);
-		i--;
-		toggleLED(RED);
-		HAL_Delay(1000);
-		toggleLED(WHITE);
+
+		testMenu(LEFTENCODER);
 	}
 
     return;
@@ -121,21 +101,17 @@ void testMenu(int channel) {
 	} else if (count >= 0 && count <= 800) {
 		setLED(RED, ON);
 		setLED(GREEN, OFF);
-		setSpeed(1 - channel, 0);
 	} else if (count > 800 && count <= (800*2)) {
 		setLED(RED, OFF);
 		setLED(GREEN, ON);
 		setLED(BLUE, OFF);
-		setSpeed(1 - channel, 30);
 	} else if (count > (800*2) && count <= (800*3)) {
 		setLED(GREEN, OFF);
 		setLED(BLUE, ON);
 		setLED(WHITE, OFF);
-		setSpeed(1 - channel, 60);
 	} else if (count > (800*3) && count <= (800*4)) {
 		setLED(BLUE, OFF);
 		setLED(WHITE, ON);
-		setSpeed(1 - channel, 90);
 	} else if (count > (800*4)) {
 		count = (800*4);
 	}
@@ -167,7 +143,7 @@ void batteryFault() {
 		setSpeed(LEFTMOTOR, 0);
 		setSpeed(RIGHTMOTOR, 0);
 		//Enable buzzer
-		setBuzzer(4000);
+		setBuzzer(ON);
 		//Disable all LEDs
 		setLEDAll(OFF);
 		//Flash red LED every half second.

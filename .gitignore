@@ -1,1 +1,6 @@
 /output/
+*.o
+*.xml
+*.cogui
+TSM_HAL.coproj
+*.xml
