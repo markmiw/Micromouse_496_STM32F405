@@ -7,5 +7,9 @@
 
 void initADC();
 uint32_t readADC(int channel);
-
+uint32_t readBattery(void);
+float rightSensorConversion(uint32_t reading);
+float leftSensorConversion(uint32_t reading);
+float rightCenterSensorConversion(uint32_t reading);
+float leftCenterSensorConversion(uint32_t reading);
 //void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
