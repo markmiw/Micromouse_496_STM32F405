@@ -4,3 +4,9 @@
 *.cogui
 TSM_HAL.coproj
 *.xml
+*.xml
+*.xml
+*.bin
+*.hex
+*.map
+*.o

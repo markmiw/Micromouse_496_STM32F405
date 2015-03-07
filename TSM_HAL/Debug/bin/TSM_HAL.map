@@ -755,7 +755,7 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm
 LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/crt0.o
                 0x20020000                _eram = 0x20020000
 
-.text           0x08000000    0x14c44
+.text           0x08000000    0x14cec
  *(.isr_vector)
  .isr_vector    0x08000000      0x188 ..\obj\startup_stm32f405xx.o
                 0x08000000                g_pfnVectors
@@ -1153,89 +1153,89 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm
                 0x0801284c                travelDistance
                 0x08012864                HAL_TIM_PeriodElapsedCallback
  *fill*         0x080128c4        0x4 
- .text          0x080128c8     0x1188 ..\obj\adc.o
+ .text          0x080128c8     0x1230 ..\obj\adc.o
                 0x080128c8                initADC
                 0x08012a70                readBattery
                 0x08012abc                readADC
                 0x08012c0c                rightSensorConversion
-                0x08012f58                leftSensorConversion
-                0x080132b0                rightCenterSensorConversion
-                0x08013650                leftCenterSensorConversion
- .text          0x08013a50      0x238 ..\obj\led.o
-                0x08013a50                initLED
-                0x08013ac8                setLED
-                0x08013b7c                setLEDAll
-                0x08013bf4                toggleLED
-                0x08013c54                toggleLEDAll
- .text          0x08013c88      0x370 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubdf3.o)
-                0x08013c88                __aeabi_drsub
-                0x08013c90                __aeabi_dsub
-                0x08013c90                __subdf3
-                0x08013c94                __aeabi_dadd
-                0x08013c94                __adddf3
-                0x08013f0c                __floatunsidf
-                0x08013f0c                __aeabi_ui2d
-                0x08013f2c                __floatsidf
-                0x08013f2c                __aeabi_i2d
-                0x08013f50                __aeabi_f2d
-                0x08013f50                __extendsfdf2
-                0x08013f8c                __floatundidf
-                0x08013f8c                __aeabi_ul2d
-                0x08013f9c                __floatdidf
-                0x08013f9c                __aeabi_l2d
- .text          0x08013ff8      0x424 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivdf3.o)
-                0x08013ff8                __aeabi_dmul
-                0x08013ff8                __muldf3
-                0x0801424c                __divdf3
-                0x0801424c                __aeabi_ddiv
- .text          0x0801441c       0xa0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_truncdfsf2.o)
-                0x0801441c                __truncdfsf2
-                0x0801441c                __aeabi_d2f
- .text          0x080144bc      0x21c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubsf3.o)
-                0x080144bc                __aeabi_frsub
-                0x080144c4                __subsf3
-                0x080144c4                __aeabi_fsub
-                0x080144c8                __aeabi_fadd
-                0x080144c8                __addsf3
-                0x08014628                __aeabi_ui2f
-                0x08014628                __floatunsisf
-                0x08014630                __aeabi_i2f
-                0x08014630                __floatsisf
-                0x0801464c                __aeabi_ul2f
-                0x0801464c                __floatundisf
-                0x0801465c                __aeabi_l2f
-                0x0801465c                __floatdisf
- .text          0x080146d8      0x2a0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivsf3.o)
-                0x080146d8                __mulsf3
-                0x080146d8                __aeabi_fmul
-                0x08014840                __aeabi_fdiv
-                0x08014840                __divsf3
- .text          0x08014978       0x4c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_fixsfsi.o)
-                0x08014978                __aeabi_f2iz
-                0x08014978                __fixsfsi
+                0x08012f88                leftSensorConversion
+                0x08013300                rightCenterSensorConversion
+                0x080136c8                leftCenterSensorConversion
+ .text          0x08013af8      0x238 ..\obj\led.o
+                0x08013af8                initLED
+                0x08013b70                setLED
+                0x08013c24                setLEDAll
+                0x08013c9c                toggleLED
+                0x08013cfc                toggleLEDAll
+ .text          0x08013d30      0x370 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubdf3.o)
+                0x08013d30                __aeabi_drsub
+                0x08013d38                __aeabi_dsub
+                0x08013d38                __subdf3
+                0x08013d3c                __aeabi_dadd
+                0x08013d3c                __adddf3
+                0x08013fb4                __floatunsidf
+                0x08013fb4                __aeabi_ui2d
+                0x08013fd4                __floatsidf
+                0x08013fd4                __aeabi_i2d
+                0x08013ff8                __aeabi_f2d
+                0x08013ff8                __extendsfdf2
+                0x08014034                __floatundidf
+                0x08014034                __aeabi_ul2d
+                0x08014044                __floatdidf
+                0x08014044                __aeabi_l2d
+ .text          0x080140a0      0x424 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivdf3.o)
+                0x080140a0                __aeabi_dmul
+                0x080140a0                __muldf3
+                0x080142f4                __divdf3
+                0x080142f4                __aeabi_ddiv
+ .text          0x080144c4       0xa0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_truncdfsf2.o)
+                0x080144c4                __truncdfsf2
+                0x080144c4                __aeabi_d2f
+ .text          0x08014564      0x21c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubsf3.o)
+                0x08014564                __aeabi_frsub
+                0x0801456c                __subsf3
+                0x0801456c                __aeabi_fsub
+                0x08014570                __aeabi_fadd
+                0x08014570                __addsf3
+                0x080146d0                __aeabi_ui2f
+                0x080146d0                __floatunsisf
+                0x080146d8                __aeabi_i2f
+                0x080146d8                __floatsisf
+                0x080146f4                __aeabi_ul2f
+                0x080146f4                __floatundisf
+                0x08014704                __aeabi_l2f
+                0x08014704                __floatdisf
+ .text          0x08014780      0x2a0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivsf3.o)
+                0x08014780                __mulsf3
+                0x08014780                __aeabi_fmul
+                0x080148e8                __aeabi_fdiv
+                0x080148e8                __divsf3
+ .text          0x08014a20       0x4c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_fixsfsi.o)
+                0x08014a20                __aeabi_f2iz
+                0x08014a20                __fixsfsi
  .text.__libc_init_array
-                0x080149c4       0x50 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-init.o)
-                0x080149c4                __libc_init_array
- .text.strlen   0x08014a14       0x5c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-strlen.o)
-                0x08014a14                strlen
+                0x08014a6c       0x50 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-init.o)
+                0x08014a6c                __libc_init_array
+ .text.strlen   0x08014abc       0x5c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-strlen.o)
+                0x08014abc                strlen
  .text.startup.register_fini
-                0x08014a70       0x14 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-__call_atexit.o)
- .text.atexit   0x08014a84        0xc c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-atexit.o)
-                0x08014a84                atexit
+                0x08014b18       0x14 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-__call_atexit.o)
+ .text.atexit   0x08014b2c        0xc c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-atexit.o)
+                0x08014b2c                atexit
  .text.__libc_fini_array
-                0x08014a90       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-fini.o)
-                0x08014a90                __libc_fini_array
+                0x08014b38       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-fini.o)
+                0x08014b38                __libc_fini_array
  .text.__register_exitproc
-                0x08014abc       0xa4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-__atexit.o)
-                0x08014abc                __register_exitproc
+                0x08014b64       0xa4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-__atexit.o)
+                0x08014b64                __register_exitproc
  *(.init)
- .init          0x08014b60        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crti.o
-                0x08014b60                _init
- .init          0x08014b64        0x8 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crtn.o
+ .init          0x08014c08        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crti.o
+                0x08014c08                _init
+ .init          0x08014c0c        0x8 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crtn.o
  *(.fini)
- .fini          0x08014b6c        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crti.o
-                0x08014b6c                _fini
- .fini          0x08014b70        0x8 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crtn.o
+ .fini          0x08014c14        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crti.o
+                0x08014c14                _fini
+ .fini          0x08014c18        0x8 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -1247,49 +1247,49 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x08014b78       0x10 ..\obj\main.o
- .rodata        0x08014b88       0xa4 ..\obj\usart.o
- .rodata        0x08014c2c       0x10 ..\obj\stm32f4xx_hal_rcc.o
-                0x08014c2c                APBAHBPrescTable
+ .rodata        0x08014c20       0x10 ..\obj\main.o
+ .rodata        0x08014c30       0xa4 ..\obj\usart.o
+ .rodata        0x08014cd4       0x10 ..\obj\stm32f4xx_hal_rcc.o
+                0x08014cd4                APBAHBPrescTable
  .rodata.str1.4
-                0x08014c3c        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-impure.o)
+                0x08014ce4        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-impure.o)
  .rodata._global_impure_ptr
-                0x08014c40        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-impure.o)
-                0x08014c40                _global_impure_ptr
+                0x08014ce8        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-impure.o)
+                0x08014ce8                _global_impure_ptr
  *(.eh_fram e*)
 
-.eh_frame       0x08014c44        0x0
- .eh_frame      0x08014c44        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crtbegin.o
+.eh_frame       0x08014cec        0x0
+ .eh_frame      0x08014cec        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crtbegin.o
 
-.glue_7         0x08014c44        0x0
+.glue_7         0x08014cec        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x08014c44        0x0
+.glue_7t        0x08014cec        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x08014c44        0x0
+.vfp11_veneer   0x08014cec        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x08014c44        0x0
+.v4_bx          0x08014cec        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x08014c44        0x0
+.iplt           0x08014cec        0x0
  .iplt          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crtbegin.o
 
-.rel.dyn        0x08014c44        0x0
+.rel.dyn        0x08014cec        0x0
  .rel.iplt      0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08014c44                __exidx_start = .
+                0x08014cec                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x08014c44                __exidx_end = .
-                0x08014c44                __etext = .
-                0x08014c44                _sidata = __etext
+                0x08014cec                __exidx_end = .
+                0x08014cec                __etext = .
+                0x08014cec                _sidata = __etext
 
-.data           0x20000000      0x450 load address 0x08014c44
+.data           0x20000000      0x450 load address 0x08014cec
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -1325,10 +1325,10 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm
                 0x20000450                __data_end__ = .
                 0x20000450                _edata = __data_end__
 
-.igot.plt       0x20000450        0x0 load address 0x08015094
+.igot.plt       0x20000450        0x0 load address 0x0801513c
  .igot.plt      0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/crtbegin.o
 
-.bss            0x20000450      0x1e4 load address 0x08015094
+.bss            0x20000450      0x1e4 load address 0x0801513c
                 0x20000450                . = ALIGN (0x4)
                 0x20000450                __bss_start__ = .
                 0x20000450                _sbss = __bss_start__
@@ -1361,7 +1361,7 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm
  *(.heap*)
                 0x20000634                __HeapLimit = .
 
-.co_stack       0x20000634        0x4 load address 0x08015278
+.co_stack       0x20000634        0x4 load address 0x08015320
                 0x20000638                . = ALIGN (0x8)
  *fill*         0x20000634        0x4 
  *(.co_stack .co_stack.*)
@@ -1629,7 +1629,7 @@ OUTPUT(TSM_HAL.elf elf32-littlearm)
  .debug_aranges
                 0x00000268       0x20 ..\obj\led.o
 
-.debug_line     0x00000000     0x959a
+.debug_line     0x00000000     0x960b
  .debug_line    0x00000000     0x44c7 ..\obj\stm32f4xx_hal_dma.o
  .debug_line    0x000044c7      0x2b8 ..\obj\stm32f4xx_it.o
  .debug_line    0x0000477f      0x3a9 ..\obj\stm32f4xx_hal_gpio.o
@@ -1648,8 +1648,8 @@ OUTPUT(TSM_HAL.elf elf32-littlearm)
  .debug_line    0x0000852e      0x4ca ..\obj\stm32f4xx_hal_adc_ex.o
  .debug_line    0x000089f8      0x1fa ..\obj\system_stm32f4xx.o
  .debug_line    0x00008bf2      0x34c ..\obj\motor.o
- .debug_line    0x00008f3e      0x3ae ..\obj\adc.o
- .debug_line    0x000092ec      0x2ae ..\obj\led.o
+ .debug_line    0x00008f3e      0x41f ..\obj\adc.o
+ .debug_line    0x0000935d      0x2ae ..\obj\led.o
 
 .debug_str      0x00000000     0x3ea6
  .debug_str     0x00000000      0x523 ..\obj\stm32f4xx_hal_dma.o

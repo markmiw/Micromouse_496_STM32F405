@@ -190,19 +190,19 @@ uint32_t readADC(int channel) {
 }
 
 float rightSensorConversion(int x) {
-    if (x > 2335) {
+    if (x >= 2335) {
         return (-3*0.000000001*x*x*x + 3*0.00001*x*x - 0.0801*x + 86.366);
     }
-    else if (x > 1823) {
+    else if (x >= 1823 && x < 2335) {
         return (0.00001*x*x - 0.0622*x + 81.166);
     }
-    else if (x > 1642) {
+    else if (x >= 1642 && x < 1823) {
         return (6*0.00001*x*x - 0.2513*x + 253.42);
     }
-    else if (x > 1568) {
+    else if (x >= 1568 && x < 1642) {
         return (-0.0666*x + 124.07);
     }
-    else if (x > 1533) {
+    else if (x >= 1533 && x < 1568) {
         return (-0.1388*x + 237.54);
     }
     else {
@@ -211,19 +211,19 @@ float rightSensorConversion(int x) {
 }
 
 float leftSensorConversion(int x) {
-    if (x > 1915) {
+    if (x >= 1915) {
         return (-2*0.000000001*x*x*x + 0.00001*x*x -0.0377*x + 40.632);
     }
-    else if (x > 1348) {
+    else if (x >= 1348 && x < 1915) {
         return (8*0.000001*x*x - 0.0342*x + 41.765);
     }
-    else if (x > 1137) {
+    else if (x >= 1137 && x < 1348) {
         return (5*0.00001*x*x - 0.1475*x + 118.19);
     }
-    else if (x > 1049) {
+    else if (x >= 1049 && x < 1137) {
         return (-0.0561*x + 78.584);
     }
-    else if ( x > 1006) {
+    else if ( x >= 1006 && x < 1049) {
         return (-0.113*x + 138.43);
     }
     else {
@@ -232,19 +232,19 @@ float leftSensorConversion(int x) {
 }
 
 float rightCenterSensorConversion(int x) {
-    if (x > 3660) {
+    if (x >= 3660) {
         return (-8*0.00001*x*x + 0.5542*x - 1008.6);
     }
-    else if (x > 2533) {
+    else if (x >= 2533 && x < 3660) {
         return (-4*0.000000001*x*x*x + 4*0.00001*x*x - 0.1163*x + 132.56);
     }
-    else if (x > 2023) {
+    else if (x >= 2023 && x < 2533) {
         return (0.00001*x*x - 0.0554*x + 86.04);
     }
-    else if (x > 1833) {
+    else if (x >= 1833 && x < 2023) {
         return (5*0.00001*x*x - 0.2281*x + 261.94);
     }
-    else if (x > 1742) {
+    else if (x >= 1742 && x < 1833) {
         return (0.0546*x + 119.97);
     }
     else {
@@ -253,19 +253,19 @@ float rightCenterSensorConversion(int x) {
 }
 
 float leftCenterSensorConversion(int x) {
-    if (x > 3493) {
+    if (x >= 3493) {
         return (-0.0000001*x*x*x + 0.0012*x*x - 4.46*x + 5399.2);
     }
-    else if (x > 2221) {
+    else if (x >= 2221 && x < 3493) {
         return (-3*0.000000001*x*x*x + 2*0.00001*x*x - 0.0749*x + 87.392);
     }
-    else if (x > 1812) {
+    else if (x >= 1812 && x < 2221) {
         return (2*0.00001*x*x - 0.0744*x + 99.119);
     }
-    else if (x > 1666) {
+    else if (x >= 1666 && x < 1812) {
         return (0.0001*x*x - 0.3747*x + 372.42);
     }
-    else if (x > 1601) {
+    else if (x >= 1601 && x < 1666) {
         return (-0.076*x + 146.38);
     }
     else {
