@@ -38,13 +38,8 @@ void main(void) {
 	printNL();
 
 	while (1) {
-		//Check for a low battery fault
 		batteryFault();
-
-		testMenu(LEFTENCODER);
 	}
-
-    return;
 }
 
 void testChaser(int mode, int period) {

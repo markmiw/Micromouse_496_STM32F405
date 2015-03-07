@@ -7,12 +7,12 @@
 #include "encoder.h"
 #include "led.h"
 
-static int leftCount;
-static int rightCount;
+static int leftCount, rightCount;
 
-void initEncoder() {
-	leftCount = 0;
-	rightCount = 0;
+void initEncoder()
+{
+	resetEncoder(LEFTENCODER);
+	resetEncoder(RIGHTENCODER);
 
 	//Data structure for GPIO configuration
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -50,54 +50,42 @@ void initEncoder() {
 
 	HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
-
-	return;
 }
 
-int readEncoder(int channel) {
-	switch (channel) {
-	case LEFTENCODER:
-		return leftCount;
-	case RIGHTENCODER:
-		return rightCount;
-	}
+int readEncoder(Encoder channel)
+{
+	if (channel == LEFTENCODER) return leftCount;
+	else return rightCount;
 }
 
-void resetEncoder(int channel) {
-	switch (channel) {
-	case LEFTENCODER:
-		leftCount = 0;
-		break;
-	case RIGHTENCODER:
-		rightCount = 0;
-		break;
-	}
+void resetEncoder(Encoder channel)
+{
+	if (channel == LEFTENCODER) leftCount = 0;
+	else rightCount = 0;
+}
+
+static void incrementEncoder(Encoder channel)
+{
+	if (channel == LEFTENCODER) leftCount++;
+	else rightCount++;
+}
+
+static void decrementEncoder(Encoder channel)
+{
+	if (channel == LEFTENCODER) leftCount--;
+	else rightCount--;
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if (GPIO_Pin == GPIO_PIN_0)
 	{
-		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_SET)
-		{
-			rightCount++;
-		}
-		else
-		{
-			rightCount--;
-		}
+		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_SET) incrementEncoder(RIGHTENCODER);
+		else decrementEncoder(RIGHTENCODER);
 	}
 	else if (GPIO_Pin == GPIO_PIN_15)
 	{
-		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3) == GPIO_PIN_SET)
-		{
-			leftCount++;
-		}
-		else
-		{
-			leftCount--;
-		}
-
+		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3) == GPIO_PIN_SET) incrementEncoder(LEFTENCODER);
+		else decrementEncoder(LEFTENCODER);
 	}
-	return;
 }
