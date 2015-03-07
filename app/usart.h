@@ -10,3 +10,4 @@ void fullSensorUSART();
 void printUSART(int value);
 void printStringUSART();
 void printNL();
+void printFloat(float value);
