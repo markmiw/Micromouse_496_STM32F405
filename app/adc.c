@@ -189,6 +189,90 @@ uint32_t readADC(int channel) {
 	return HAL_ADC_GetValue(&ADCHandle);
 }
 
+float rightSensorConversion(uint32_t x) {
+    if (x > 2335) {
+        return (-3*0.000000001*x*x*x + 3*0.00001*x*x - 0.0801*x + 86.366);
+    }
+    else if (x > 1823) {
+        return (0.00001*x*x - 0.0622*x + 81.166);
+    }
+    else if (x > 1642) {
+        return (6*0.00001*x*x - 0.2513*x + 253.42);
+    }
+    else if (x > 1568) {
+        return (-0.0666*x + 124.07);
+    }
+    else if (x > 1533) {
+        return (-0.1388*x + 237.54);
+    }
+    else {
+        return (-0.2857*x + 462.79);
+    }
+}
+
+float leftSensorConversion(uint32_t x) {
+    if (x > 1915) {
+        return (-2*0.000000001*x*x*x + 0.00001*x*x -0.0377*x + 40.632);
+    }
+    else if (x > 1348) {
+        return (8*0.000001*x*x - 0.0342*x + 41.765);
+    }
+    else if (x > 1137) {
+        return (5*0.00001*x*x - 0.1475*x + 118.19);
+    }
+    else if (x > 1049) {
+        return (-0.0561*x + 78.584);
+    }
+    else if ( x > 1006) {
+        return (-0.113*x + 138.43);
+    }
+    else {
+        return (-0.2249*x + 251.06);
+    }
+}
+
+float rightCenterSensorConversion(uint32_t x) {
+    if (x > 3660) {
+        return (-8*0.00001*x*x + 0.5542*x - 1008.6);
+    }
+    else if (x > 2533) {
+        return (-4*0.000000001*x*x*x + 4*0.00001*x*x - 0.1163*x + 132.56);
+    }
+    else if (x > 2023) {
+        return (0.00001*x*x - 0.0554*x + 86.04);
+    }
+    else if (x > 1833) {
+        return (5*0.00001*x*x - 0.2281*x + 261.94);
+    }
+    else if (x > 1742) {
+        return (0.0546*x + 119.97);
+    }
+    else {
+        return (-0.1*x + 199.01);
+    }
+}
+
+float leftCenterSensorConversion(uint32_t x) {
+    if (x > 3493) {
+        return (-0.0000001*x*x*x + 0.0012*x*x - 4.46*x + 5399.2);
+    }
+    else if (x > 2221) {
+        return (-3*0.000000001*x*x*x + 2*0.00001*x*x - 0.0749*x + 87.392);
+    }
+    else if (x > 1812) {
+        return (2*0.00001*x*x - 0.0744*x + 99.119);
+    }
+    else if (x > 1666) {
+        return (0.0001*x*x - 0.3747*x + 372.42);
+    }
+    else if (x > 1601) {
+        return (-0.076*x + 146.38);
+    }
+    else {
+        return (-0.1315*x + 235.41);
+    }
+}
+
 //void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
 //
 //	int ADCValue = HAL_ADC_GetValue(&ADCHandle);
