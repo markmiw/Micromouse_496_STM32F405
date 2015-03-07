@@ -117,7 +117,7 @@ void printUSART(int value) {
 
 void printFloat(float value) {
 	int x = value;
-	int y = (value%1)*1000;
+	int y = (value-x)*1000;
 
 	printUSART(x);
 	printStringUSART(".");
