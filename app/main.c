@@ -1,3 +1,5 @@
+#include <math.h>
+
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/stm32f4xx.h"
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/stm32f405xx.h"
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal.h"
@@ -39,6 +41,8 @@ void main(void) {
 
 	while (1) {
 		batteryFault();
+		printUSART((int)leftSensorConversion(readADC(LEFT_DET)));
+		printNL();
 	}
 }
 

@@ -269,7 +269,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			masterTimer++;
 		}
 
-//		if (countMajor >= 10)
+//		if (countMajor >= targetTimeDifference)
 //		{
 //			leftSensor = readADC(LEFT_CEN_DET);
 //			rightSensor = readADC(RIGHT_CEN_DET);
@@ -292,12 +292,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 //			}
 //			else setLED(GREEN, OFF);
 //		}
-
-		if (countMajor >= 4)
-		{
-
-
-		}
 	}
 
 	else if (htim->Instance == TIM5) //rightHandler
