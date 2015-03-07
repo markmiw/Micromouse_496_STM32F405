@@ -115,6 +115,15 @@ void printUSART(int value) {
     HAL_Delay(TRANS_DELAY);
 }
 
+void printFloat(float value) {
+	int x = value;
+	int y = (value-x)*1000;
+
+	printUSART(x);
+	printStringUSART(".");
+	printUSART(y);
+}
+
 void printStringUSART(char *c) {
     int length;
     length = strlen(c);
