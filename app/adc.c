@@ -189,88 +189,80 @@ uint32_t readADC(int channel) {
 	return HAL_ADC_GetValue(&ADCHandle);
 }
 
-float rightSensorConversion(int x) {
-    if (x >= 2335) {
-        return (-3*0.000000001*x*x*x + 3*0.00001*x*x - 0.0801*x + 86.366);
-    }
-    else if (x >= 1823 && x < 2335) {
-        return (0.00001*x*x - 0.0622*x + 81.166);
-    }
-    else if (x >= 1642 && x < 1823) {
-        return (6*0.00001*x*x - 0.2513*x + 253.42);
-    }
-    else if (x >= 1568 && x < 1642) {
-        return (-0.0666*x + 124.07);
-    }
-    else if (x >= 1533 && x < 1568) {
-        return (-0.1388*x + 237.54);
-    }
-    else {
-        return (-0.2857*x + 462.79);
-    }
+void sensorCalibrationPrint(int sensor, int distance) {
+	int i = 0;
+	if(sensor == RIGHT_DET) printStringUSART("Right Sensor");
+	if(sensor == LEFT_DET) printStringUSART("Left Sensor");
+	if(sensor == RIGHT_CEN_DET) printStringUSART("Right Center Sensor");
+	if(sensor == LEFT_CEN_DET) printStringUSART("Left Center Sensor");
+	printNL();
+	int readings[distance+1];
+	while(i < distance+1) {
+		printStringUSART("Move to ");
+		printUSART(i);
+		printStringUSART("cm");
+		printNL();
+		HAL_Delay(10000);
+
+		int value = 0;
+		int j;
+		for(j = 0; j < 10; j++)
+			value+=readADC(sensor);
+		value/=10;
+		readings[i] = value;
+		i++;
+
+		if(i == distance+1) {
+			printStringUSART("Printing CSV");
+			printNL();
+			HAL_Delay(5000);
+			for(j = 0; j < distance+1; j++) {
+				printUSART(j);
+				printStringUSART(",");
+				printUSART(readings[j]);
+				printNL();
+			}
+		}
+	}
+	printStringUSART("Finished Generating");
+	printNL();
+	HAL_Delay(5000);
 }
 
-float leftSensorConversion(int x) {
-    if (x >= 1915) {
-        return (-2*0.000000001*x*x*x + 0.00001*x*x -0.0377*x + 40.632);
-    }
-    else if (x >= 1348 && x < 1915) {
-        return (8*0.000001*x*x - 0.0342*x + 41.765);
-    }
-    else if (x >= 1137 && x < 1348) {
-        return (5*0.00001*x*x - 0.1475*x + 118.19);
-    }
-    else if (x >= 1049 && x < 1137) {
-        return (-0.0561*x + 78.584);
-    }
-    else if ( x >= 1006 && x < 1049) {
-        return (-0.113*x + 138.43);
-    }
-    else {
-        return (-0.2249*x + 251.06);
-    }
+double rightSensorConversion(int x) {
+	int y = (-4.936*0.000000001*x*x*x + 4.23*0.00001*x*x - 0.122*x + 121.158);
+
+    if(x > RIGHT_MAX) {return 0.00;}
+    else if(x < RIGHT_MIN) {return CALI_DIST;}
+    else {return y;}
 }
 
-float rightCenterSensorConversion(int x) {
-    if (x >= 3660) {
-        return (-8*0.00001*x*x + 0.5542*x - 1008.6);
-    }
-    else if (x >= 2533 && x < 3660) {
-        return (-4*0.000000001*x*x*x + 4*0.00001*x*x - 0.1163*x + 132.56);
-    }
-    else if (x >= 2023 && x < 2533) {
-        return (0.00001*x*x - 0.0554*x + 86.04);
-    }
-    else if (x >= 1833 && x < 2023) {
-        return (5*0.00001*x*x - 0.2281*x + 261.94);
-    }
-    else if (x >= 1742 && x < 1833) {
-        return (0.0546*x + 119.97);
-    }
-    else {
-        return (-0.1*x + 199.01);
-    }
+double leftSensorConversion(int x) {
+	int y;
+
+    if(x > LEFT_MAX) {return 0.00;}
+    else if(x < LEFT_MIN) {return CALI_DIST;}
+    else if(x <= LEFT_MAX && x > LEFT_5) y = -4.234*0.000000000000001*x*x*x*x*x + 5.694*0.00000000001*x*x*x*x - 3.042*0.0000001*x*x*x + 8.077*0.0001*x*x - 1.069*x + 570.707;
+    else if(x <= LEFT_5 && x > LEFT_10) y = -8.796*0.000000001*x*x*x + 5.115*0.00001*x*x - 0.104*x + 77.862;
+    else y = 4.603*0.00001*x*x - 0.132*x + 104.653;
+
+    return y;
 }
 
-float leftCenterSensorConversion(int x) {
-    if (x >= 3493) {
-        return (-0.0000001*x*x*x + 0.0012*x*x - 4.46*x + 5399.2);
-    }
-    else if (x >= 2221 && x < 3493) {
-        return (-3*0.000000001*x*x*x + 2*0.00001*x*x - 0.0749*x + 87.392);
-    }
-    else if (x >= 1812 && x < 2221) {
-        return (2*0.00001*x*x - 0.0744*x + 99.119);
-    }
-    else if (x >= 1666 && x < 1812) {
-        return (0.0001*x*x - 0.3747*x + 372.42);
-    }
-    else if (x >= 1601 && x < 1666) {
-        return (-0.076*x + 146.38);
-    }
-    else {
-        return (-0.1315*x + 235.41);
-    }
+double rightCenterSensorConversion(int x) {
+	int y = (-4.782*0.000000001*x*x*x + 4.196*0.00001*x*x - 0.125*x + 134.84);
+
+    if(x > RIGHT_MAX) {return 0.00;}
+    else if(x < RIGHT_CEN_MIN) {return 50.00;}
+    else {return y;}
+}
+
+double leftCenterSensorConversion(int x) {
+	int y = (-4.806*0.000000001*x*x*x + 4.285*0.00001*x*x - 0.129*x + 139.434);
+
+    if(x > LEFT_MAX) {return 0.00;}
+    else if(x < LEFT_CEN_MIN) {return 15.00;}
+    else {return y;}
 }
 
 //void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {

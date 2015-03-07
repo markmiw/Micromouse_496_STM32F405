@@ -36,12 +36,22 @@ void main(void) {
 
 	printStringUSART("Hello world!");
 	printNL();
-
+	int value;
+	int left;
 	while (1) {
 		//Check for a low battery fault
 		batteryFault();
 
-		testMenu(LEFTENCODER);
+		value = readADC(LEFT_DET);
+		left = leftSensorConversion(value);
+		if(left < 2.0) setLED(WHITE,ON);
+		else setLED(WHITE,OFF);
+		if(left < 4.0) setLED(RED,ON);
+		else setLED(RED,OFF);
+		if(left < 8.0) setLED(GREEN,ON);
+		else setLED(GREEN,OFF);
+		printFloat(left);
+		printNL();
 	}
 
     return;

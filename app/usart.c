@@ -102,7 +102,7 @@ void printUSART(int value) {
     char dig = '0';
     char digit[10];
 
-    for(k = 10; k < value; k*=10) {
+    for(k = 10; k <= value; k*=10) {
         digLen++;
     }
 
