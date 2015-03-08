@@ -101,6 +101,12 @@ void printUSART(int value) {
     int digLen = 1;
     char dig = '0';
     char digit[10];
+    int negative = 1;
+
+    if (value < 0) {
+    	negative = -1;
+    	value*=negative;
+    }
 
     for(k = 10; k <= value; k*=10) {
         digLen++;
@@ -111,6 +117,7 @@ void printUSART(int value) {
         value/=10;
     }
 
+    if (negative == -1) HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *) "-", 1, 1000);
     HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *)&digit, digLen, 1000);
     HAL_Delay(TRANS_DELAY);
 }
@@ -118,7 +125,14 @@ void printUSART(int value) {
 void printFloat(float value) {
 	int x = value;
 	int y = (value-x)*1000;
+    int negative = 1;
 
+    if (value < 0) {
+    	negative = -1;
+    	value*=negative;
+    }
+
+    if (negative == -1) HAL_USART_Transmit(&USART_HandleStructure, (uint8_t *) "-", 1, 1000);
 	printUSART(x);
 	printStringUSART(".");
 	printUSART(y);
