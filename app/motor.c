@@ -3,6 +3,7 @@
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_rcc.h"
 #include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_tim.h"
 
+#include "adc.h"
 #include "encoder.h"
 #include "led.h"
 #include "motor.h"
@@ -16,21 +17,20 @@ TIM_OC_InitTypeDef sConfig;
 
 static int leftMotorSpeed;
 static int rightMotorSpeed;
+
 static uint8_t countMinor;
 static uint32_t countMajor;
-//static int countLeft;
-//static int countRight;
-//static int timeFactor;
-//static int currentTime;
-//static int targetDistance;
+static uint32_t masterTimer;
+
+static uint32_t targetDistance;
+static uint32_t targetSpeed;
+static uint32_t targetTimeDifference;
+
+static int leftSpeedBuffer, rightSpeedBuffer;
 
 void initMotor() {
 	leftMotorSpeed  = 0;
 	rightMotorSpeed = 0;
-//	countLeft       = 0;
-//	countRight      = 0;
-//	timeFactor      = 0;
-//	targetDistance  = 0;
 	countMinor = 0;
 	countMajor = 0;
 
@@ -41,7 +41,7 @@ void initMotor() {
 	__GPIOB_CLK_ENABLE();
 
 	//Enable TIM clock for PWM (2 & 3 & 4)
-	__TIM2_CLK_ENABLE(); //TIM for countLeft
+	__TIM2_CLK_ENABLE(); //TIM for counter
 	__TIM3_CLK_ENABLE(); //TIM for buzzer
 	__TIM4_CLK_ENABLE(); //TIM for motors
 	__TIM5_CLK_ENABLE(); //TIM for countRight
@@ -189,27 +189,26 @@ void setDirection(Motor channel, Direction state)
 	return;
 }
 
+uint32_t currentSpeed(Motor channel)
+{
+	if (channel == LEFTMOTOR) return leftMotorSpeed;
+	else return rightMotorSpeed;
+}
+
 void setSpeed(Motor channel, uint32_t speed)
 {
 	if (channel == LEFTMOTOR)
 	{
-		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_SET)
-		{
-			speed = PERIOD - speed;
-		}
+		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_SET) speed = PERIOD - speed;
 		leftMotorSpeed = speed;
 		__HAL_TIM_SetCompare(&motorHandler, TIM_CHANNEL_1, speed);
 	}
 	else
 	{
-		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_SET)
-		{
-			speed = PERIOD - speed;
-		}
+		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_SET) speed = PERIOD - speed;
 		rightMotorSpeed = speed;
 		__HAL_TIM_SetCompare(&motorHandler, TIM_CHANNEL_3, speed);
 	}
-	return;
 }
 
 void toggleDirection(Motor channel)
@@ -224,36 +223,75 @@ void toggleDirection(Motor channel)
 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_9);
 		setSpeed(channel, rightMotorSpeed);
 	}
-	return;
 }
 
 /**
-  * @brief  Move the robot a certain distance with ramp ups and ramp downs
+  * @brief  Non-blocking traveling function...
   * @param  distance: 	Number of ticks for the robot to travel
   * @param  maxSpeed: 	Target speed limit that the robot will not pass
-  * #oaram	dt:			Rate of time between speed increase
+  * @param	dt:			Rate of time between speed increase (msec)
   * @retval Nothing
   */
-void travelDistance(int distance, int maxSpeed, int dt)
+void travelDistance(uint32_t distance, uint32_t maxSpeed, uint32_t dt)
 {
-
+	targetDistance = distance;
+	targetSpeed = maxSpeed;
+	targetTimeDifference = dt;
+	resetEncoder(LEFTENCODER);
+	resetEncoder(RIGHTENCODER);
+	setDirection(LEFTMOTOR, FORWARD);
+	setDirection(RIGHTMOTOR, FORWARD);
+	setSpeed(LEFTMOTOR, 0);
+	setSpeed(RIGHTMOTOR, 0);
+	leftSpeedBuffer = 0;
+	rightSpeedBuffer = 0;
+	masterTimer = 0;
+	HAL_TIM_Base_Start_IT(&countHandler);
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	if (htim->Instance == TIM3) //Buzzer interrupt
-	{
-		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
-	}
+	int leftDistance, rightDistance;
+	uint32_t leftSensor, rightSensor;
+	int leftSensorBuffer, rightSensorBuffer;
+
+	//Buzzer interrupt
+	if (htim->Instance == TIM3) HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
 
 	else if (htim->Instance == TIM2) //Counter interrupt
 	{
 		countMinor++;
-		if (countMinor >= 4)
+
+		if (countMinor >= 4) //A millisecond
 		{
 			countMinor = 0;
 			countMajor++;
+			masterTimer++;
 		}
+
+//		if (countMajor >= targetTimeDifference)
+//		{
+//			leftSensor = readADC(LEFT_CEN_DET);
+//			rightSensor = readADC(RIGHT_CEN_DET);
+//
+//			if (leftSensor > 2300)
+//			{
+//				setLED(WHITE, ON);
+//				rightSpeedBuffer--;
+//				if (rightSpeedBuffer < 0) rightSpeedBuffer = 0;
+//				setSpeed(RIGHTMOTOR, rightSpeedBuffer);
+//			}
+//			else setLED(WHITE,OFF);
+//
+//			if (rightSensor > 2300)
+//			{
+//				setLED(GREEN, ON);
+//				leftSpeedBuffer--;
+//				if (leftSpeedBuffer < 0) leftSpeedBuffer = 0;
+//				setSpeed(LEFTMOTOR, leftSpeedBuffer);
+//			}
+//			else setLED(GREEN, OFF);
+//		}
 	}
 
 	else if (htim->Instance == TIM5) //rightHandler
