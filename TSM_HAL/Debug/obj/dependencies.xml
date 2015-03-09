@@ -16,11 +16,12 @@
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_rcc.h"/>
          <include file="..\..\..\app\led.h"/>
       </source>
-      <source file="..\..\..\app\motor.c" lastModified="14bf1158923">
+      <source file="..\..\..\app\motor.c" lastModified="14bfc2db9b3">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_gpio.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_rcc.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_tim.h"/>
+         <include file="..\..\..\app\adc.h"/>
          <include file="..\..\..\app\encoder.h"/>
          <include file="..\..\..\app\led.h"/>
          <include file="..\..\..\app\motor.h"/>
@@ -33,12 +34,14 @@
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_eth.h" lastModified="14be24dcd3b">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
       </source>
-      <source file="..\..\..\app\adc.h" lastModified="14bf2ae70f1">
+      <source file="..\..\..\app\adc.h" lastModified="14bfb750d33">
       </source>
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_eth.c" lastModified="14be24dcd36">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
       </source>
-      <source file="..\..\..\app\adc.c" lastModified="14bf2ae41e7">
+      <source file="..\..\..\components\coocox-master\cmsis_core\source\core_cmFunc.h" lastModified="14be24dd5ae">
+      </source>
+      <source file="..\..\..\app\adc.c" lastModified="14bfb750d32">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_adc.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_cortex.h"/>
@@ -47,8 +50,6 @@
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_rcc.h"/>
          <include file="..\..\..\app\adc.h"/>
          <include file="..\..\..\app\led.h"/>
-      </source>
-      <source file="..\..\..\components\coocox-master\cmsis_core\source\core_cmFunc.h" lastModified="14be24dd5ae">
       </source>
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_pcd_ex.h" lastModified="14be24dcd69">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
@@ -143,24 +144,10 @@
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_tim_ex.h" lastModified="14be24dcd91">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
       </source>
-      <source file="..\..\..\app\main.c" lastModified="14bfb5f4106">
-         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\stm32f4xx.h"/>
-         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\stm32f405xx.h"/>
-         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
-         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_conf.h"/>
-         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_gpio.h"/>
-         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_rcc.h"/>
-         <include file="..\..\..\app\adc.h"/>
-         <include file="..\..\..\app\encoder.h"/>
-         <include file="..\..\..\app\led.h"/>
-         <include file="..\..\..\app\motor.h"/>
-         <include file="..\..\..\app\stm32f4xx_it.h"/>
-         <include file="..\..\..\app\usart.h"/>
-      </source>
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_gpio_ex.h" lastModified="14be24dcd47">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
       </source>
-      <source file="..\..\..\app\stm32f4xx_it.h" lastModified="14bf1158927">
+      <source file="..\..\..\app\stm32f4xx_it.h" lastModified="14bfb750d38">
       </source>
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_tim_ex.c" lastModified="14be24dcd90">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
@@ -170,7 +157,7 @@
       </source>
       <source file="..\..\..\components\coocox-master\cmsis_core\source\core_cm4_simd.h" lastModified="14be24dd5ad">
       </source>
-      <source file="..\..\..\app\stm32f4xx_it.c" lastModified="14bf1158925">
+      <source file="..\..\..\app\stm32f4xx_it.c" lastModified="14bfb750d37">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_adc.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_gpio.h"/>
@@ -311,12 +298,12 @@
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_i2c_ex.h"/>
       </source>
-      <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_can.h" lastModified="14be24dcd1e">
-         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
-      </source>
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_pwr.h" lastModified="14be24dcd6b">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_pwr_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_can.h" lastModified="14be24dcd1e">
+         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
       </source>
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_dac_ex.h" lastModified="14be24dcd2d">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
@@ -392,7 +379,7 @@
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_smartcard.c" lastModified="14be24dcd84">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
       </source>
-      <source file="..\..\..\app\usart.h" lastModified="14bf1ff90cc">
+      <source file="..\..\..\app\usart.h" lastModified="14bfb750d3a">
       </source>
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h" lastModified="14be24dcd15">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_conf.h"/>
@@ -404,6 +391,14 @@
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_ll_fsmc.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_ll_fmc.h"/>
+      </source>
+      <source file="..\..\..\app\usart.c" lastModified="14bfb750d39">
+         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_gpio.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_rcc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_usart.h"/>
+         <include file="..\..\..\app\usart.h"/>
+         <include file="..\..\..\app\adc.h"/>
       </source>
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.c" lastModified="14be24dcd14">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
@@ -435,6 +430,8 @@
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_nand.c" lastModified="14be24dcd5c">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
       </source>
+      <source file="..\..\..\app\encoder.h" lastModified="14bfbc8bdbb">
+      </source>
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_nor.h" lastModified="14be24dcd63">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_ll_fsmc.h"/>
@@ -446,15 +443,13 @@
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_rtc_ex.h" lastModified="14be24dcd7a">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
       </source>
-      <source file="..\..\..\app\encoder.h" lastModified="14be24dccfa">
-      </source>
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_sai.c" lastModified="14be24dcd7b">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
       </source>
       <source file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_dac.c" lastModified="14be24dcd2a">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
       </source>
-      <source file="..\..\..\app\encoder.c" lastModified="14bf1158920">
+      <source file="..\..\..\app\encoder.c" lastModified="14bfbc8bdba">
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\stm32f405xx.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
          <include file="..\..\..\components\coocox-master\STM32F405xx_cmsisboot\source\Hal\stm32f4xx_hal_cortex.h"/>
@@ -500,7 +495,7 @@
       </source>
       <source file="..\..\..\app\led.h" lastModified="14be24dccfb">
       </source>
-      <source file="..\..\..\app\motor.h" lastModified="14bf1158923">
+      <source file="..\..\..\app\motor.h" lastModified="14bfc12a480">
       </source>
    </includePath>
 </dependencies>

@@ -17,6 +17,7 @@ TIM_OC_InitTypeDef sConfig;
 
 static int leftMotorSpeed;
 static int rightMotorSpeed;
+int timer;
 
 static uint8_t countMinor;
 static uint32_t countMajor;
@@ -118,13 +119,14 @@ void initMotor() {
 
 	//Configure TIM for countRight
 	rightHandler.Instance = TIM5;
-	rightHandler.Init.Period = 42000;
-	rightHandler.Init.Prescaler = 0;
+	rightHandler.Init.Period = 480;
+	rightHandler.Init.Prescaler = 168;
 	rightHandler.Init.ClockDivision = 0;
 	rightHandler.Init.CounterMode = TIM_COUNTERMODE_DOWN;
-
 	HAL_TIM_Base_Init(&rightHandler);
 	HAL_TIM_Base_Stop_IT(&rightHandler);
+
+	HAL_NVIC_EnableIRQ(TIM5_IRQn);
 
 	setDirection(LEFTMOTOR, FORWARD);
 	setDirection(RIGHTMOTOR, FORWARD);
@@ -141,6 +143,18 @@ void setBuzzer(int state)
 	else
 	{
 		HAL_TIM_Base_Stop_IT(&buzzerHandler);
+	}
+}
+
+void setTimer_ms(int state)
+{
+	if (state)
+	{
+		HAL_TIM_Base_Start_IT(&rightHandler);
+	}
+	else
+	{
+		HAL_TIM_Base_Stop_IT(&rightHandler);
 	}
 }
 
@@ -296,6 +310,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 	else if (htim->Instance == TIM5) //rightHandler
 	{
-
+		timer++;
 	}
 }

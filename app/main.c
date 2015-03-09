@@ -20,7 +20,22 @@ void testRamp(int maxSpeed, int period);
 void batteryFault();
 void SystemClock_Config(void);
 
+int errorP_right;
+int errorD_right;
+int oldErrorP_right;
+int totalError_right;
+int P_right;
+int D_right;
 
+int errorP_left;
+int errorD_left;
+int oldErrorP_left;
+int totalError_left;
+int P_left;
+int D_left;
+
+void PIDencoderRight();
+void PIDencoderLeft();
 
 void main(void) {
 	HAL_Init();
@@ -30,6 +45,21 @@ void main(void) {
 	initMotor();
 	initEncoder();
 	initADC();
+	setTimer_ms(ON);
+
+	errorP_left = 0;
+	errorD_left = 0;
+	oldErrorP_left = 0;
+	totalError_left = 0;
+	P_left = 20;
+	D_left = 10;
+
+	errorP_right = 0;
+	errorD_right = 0;
+	oldErrorP_right = 0;
+	totalError_right = 0;
+	P_right = 20;
+	D_right = 10;
 
 	//LED start up sequence
 	testChaser(1, 250);
@@ -37,18 +67,65 @@ void main(void) {
 	printStringUSART("Hello world!");
 	printNL();
 
-	int encoder;
+	timer = 0;
 
 	while (1) {
 		//Check for a low battery fault
 		batteryFault();
 
-		encoder = readEncoder(RIGHTENCODER);
-		printUSART(encoder);
-		printNL();
+		PIDencoderRight();
+		PIDencoderLeft();
 	}
 
     return;
+}
+
+void PIDencoderRight(void)
+{
+	int speed = currentSpeed(RIGHTMOTOR);
+
+    errorP_right = readEncoder(RIGHTMOTOR);
+    errorD_right = errorP_right - oldErrorP_right;
+
+    totalError_right = P_right * errorP_right + D_right * errorD_right;
+    oldErrorP_right = errorP_right;
+
+    if( (speed - totalError_right) < 0) {
+    	setDirection(RIGHTMOTOR,BACKWARD);
+    	if ( (speed - totalError_right) > -100) speed = 100;
+    	else speed = speed - totalError_right;
+    }
+    else {
+    	setDirection(RIGHTMOTOR,FORWARD);
+    	if ( (speed - totalError_right) < 100) speed = 100;
+    	else speed = speed - totalError_right;
+    }
+
+    setSpeed(RIGHTMOTOR, speed);
+}
+
+void PIDencoderLeft(void)
+{
+	int speed = currentSpeed(LEFTMOTOR);
+
+    errorP_left = readEncoder(LEFTMOTOR);
+    errorD_left = errorP_left - oldErrorP_left;
+
+    totalError_left = P_left * errorP_left + D_left * errorD_left;
+    oldErrorP_left = errorP_left;
+
+    if( (speed - totalError_left) < 0) {
+    	setDirection(LEFTMOTOR,BACKWARD);
+    	if ( (speed - totalError_left) > -100) speed = 100;
+    	else speed = speed - totalError_left;
+    }
+    else {
+    	setDirection(LEFTMOTOR,FORWARD);
+    	if ( (speed - totalError_left) < 100) speed = 100;
+    	else speed = speed - totalError_left;
+    }
+
+    setSpeed(LEFTMOTOR, speed);
 }
 
 void testChaser(int mode, int period) {
