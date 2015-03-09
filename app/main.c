@@ -40,32 +40,107 @@ void main(void) {
 	printNL();
 
 	while (1) {
-		batteryFault();
-		printUSART((int)leftSensorConversion(readADC(LEFT_DET)));
-		printNL();
+		int rightBase = 50;
+		int leftBase  = 50;
+
+		int rightCorrected, leftCorrected;
+
+		setSpeed(LEFTMOTOR, leftBase);
+		setSpeed(RIGHTMOTOR, rightBase);
+
+		while (1) {
+			int left, right;
+			int leftF[4], rightF[4];
+			//Check for a low battery fault
+			batteryFault();
+
+			if (readADC(LEFT_DET) > 1300)
+			{
+				setSpeed(LEFTMOTOR, 0);
+				setSpeed(RIGHTMOTOR, 0);
+				resetEncoder(LEFTENCODER);
+				resetEncoder(RIGHTENCODER);
+				setLED(WHITE);
+				setDirection(LEFTMOTOR, BACKWARD);
+				setSpeed(LEFTMOTOR, leftBase*2);
+				setSpeed(RIGHTMOTOR, rightBase*2);
+				while (readEncoder(RIGHTENCODER) < 1500);
+				setSpeed(LEFTMOTOR, 0);
+				setSpeed(RIGHTMOTOR, 0);
+				setDirection(LEFTMOTOR, FORWARD);
+
+			}
+			else
+			{
+				int x;
+				resetLED(WHITE);
+				left = readADC(LEFT_CEN_DET);
+				right = readADC(RIGHT_CEN_DET);
+				for (x = 0; x < 4; x++)
+				{
+					leftF[x] = readADC(LEFT_CEN_DET);
+					rightF[x] = readADC(RIGHT_CEN_DET);
+				}
+
+				right = (right + rightF[0] + rightF[1] + rightF[2] + rightF[3])/5;
+
+				if (right < 1500)
+				{
+					setSpeed(LEFTMOTOR, leftBase);
+					setSpeed(RIGHTMOTOR, rightBase);
+					resetEncoder(RIGHTENCODER);
+					while (readEncoder(RIGHTENCODER) < 3200);
+					setSpeed(LEFTMOTOR, 0);
+					setSpeed(RIGHTMOTOR, 0);
+
+					setDirection(RIGHTMOTOR, BACKWARD);
+					setSpeed(LEFTMOTOR, leftBase*2);
+					setSpeed(RIGHTMOTOR, rightBase*2);
+					resetEncoder(LEFTENCODER);
+					while (readEncoder(LEFTENCODER) < 1900);
+					setSpeed(LEFTMOTOR, 0);
+					setSpeed(RIGHTMOTOR, 0);
+					setDirection(RIGHTMOTOR, FORWARD);
+				}
+				else
+				{
+					if (left > 1600) rightCorrected = (3800 - left)/((3800-1600)/rightBase);
+					else rightCorrected = rightBase;
+					if (right > 1600) leftCorrected = (3800 - right)/((3800-1600)/leftBase);
+					else leftCorrected = leftBase;
+
+					setSpeed(LEFTMOTOR, leftCorrected);
+					setSpeed(RIGHTMOTOR, rightCorrected);
+				}
+
+
+			}
+		}
+
+		return;
 	}
 }
 
 void testChaser(int mode, int period) {
 	switch (mode) {
 	case 0:
-		setLED(WHITE, ON);
+		setLED(WHITE);
 		HAL_Delay(period);
-		setLED(BLUE, ON);
+		setLED(BLUE);
 		HAL_Delay(period);
-		setLED(GREEN, ON);
+		setLED(GREEN);
 		HAL_Delay(period);
-		setLED(RED, ON);
+		setLED(RED);
 		HAL_Delay(period);
 		break;
 	case 1:
-		setLED(WHITE, ON);
+		setLED(WHITE);
 		HAL_Delay(period);
-		setLED(BLUE, ON);
+		setLED(BLUE);
 		HAL_Delay(period);
-		setLED(GREEN, ON);
+		setLED(GREEN);
 		HAL_Delay(period);
-		setLED(RED, ON);
+		setLED(RED);
 		HAL_Delay(period);
 		toggleLEDAll();
 		HAL_Delay(period);
@@ -78,16 +153,16 @@ void testChaser(int mode, int period) {
 		toggleLEDAll();
 		break;
 	case 2:
-		setLED(WHITE, ON);
+		setLED(WHITE);
 		HAL_Delay(period);
-		setLED(WHITE, OFF);
-		setLED(BLUE, ON);
+		resetLED(WHITE);
+		setLED(BLUE);
 		HAL_Delay(period);
-		setLED(BLUE, OFF);
-		setLED(GREEN, ON);
+		resetLED(BLUE);
+		setLED(GREEN);
 		HAL_Delay(period);
-		setLED(GREEN, OFF);
-		setLED(RED, ON);
+		resetLED(GREEN);
+		setLED(RED);
 		HAL_Delay(period);
 		break;
 	}
@@ -98,19 +173,19 @@ void testMenu(int channel) {
 	if (count < 0) {
 		count = 0;
 	} else if (count >= 0 && count <= 800) {
-		setLED(RED, ON);
-		setLED(GREEN, OFF);
+		setLED(RED);
+		resetLED(GREEN);
 	} else if (count > 800 && count <= (800*2)) {
-		setLED(RED, OFF);
-		setLED(GREEN, ON);
-		setLED(BLUE, OFF);
+		resetLED(RED);
+		setLED(GREEN);
+		resetLED(BLUE);
 	} else if (count > (800*2) && count <= (800*3)) {
-		setLED(GREEN, OFF);
-		setLED(BLUE, ON);
-		setLED(WHITE, OFF);
+		resetLED(GREEN);
+		setLED(BLUE);
+		resetLED(WHITE);
 	} else if (count > (800*3) && count <= (800*4)) {
-		setLED(BLUE, OFF);
-		setLED(WHITE, ON);
+		resetLED(BLUE);
+		setLED(WHITE);
 	} else if (count > (800*4)) {
 		count = (800*4);
 	}
@@ -144,7 +219,7 @@ void batteryFault() {
 		//Enable buzzer
 		setBuzzer(ON);
 		//Disable all LEDs
-		setLEDAll(OFF);
+		resetLEDAll();
 		//Flash red LED every half second.
 		while (1) {
 			//Invert the state of the red LED located closest to the STM

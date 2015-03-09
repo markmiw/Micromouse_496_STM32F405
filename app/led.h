@@ -1,13 +1,22 @@
-#define WHITE 0
-#define BLUE  1
-#define GREEN 2
-#define RED   3
+typedef enum {
+	WHITE,
+	BLUE,
+	GREEN,
+	RED
+}Led;
 
-#define ON  1
-#define OFF 0
+typedef enum {
+	ON,
+	OFF
+}State;
 
-void initLED();
-void setLED(int channel, int state);
-void setLEDAll(int state);
-void toggleLEDAll();
-void toggleLED(int channel);
+/* Public Functions */
+void initLED(void);
+void setLED(Led color);
+void resetLED(Led color);
+void setLEDAll(void);
+void resetLEDAll(void);
+void toggleLEDAll(void);
+void toggleLED(Led color);
+
+/* Private Functions */

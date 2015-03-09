@@ -10,49 +10,39 @@
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="1"/>
 <part id="0"/>
+<part id="1"/>
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
-<part id="6"/>
-<part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="motor.c" partName="motor.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.c" title="motor.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/motor.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7373" selectionTopPixel="3841"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/main.c" title="main.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/main.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/main.c" title="main.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="5" selectionOffset="1097" selectionTopPixel="376"/>
+<editorState selectionHorizontalPixel="0" selectionLength="2" selectionOffset="1699" selectionTopPixel="960"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="motor.c" partName="motor.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.c" title="motor.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/motor.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3888" selectionTopPixel="1725"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="motor.h" partName="motor.h" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.h" title="motor.h" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/motor.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" partName="usart.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/usart.c" title="usart.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/usart.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/usart.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="16" selectionOffset="3398" selectionTopPixel="1456"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_it.c" partName="stm32f4xx_it.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/stm32f4xx_it.c" title="stm32f4xx_it.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/stm32f4xx_it.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/stm32f4xx_it.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="684" selectionTopPixel="31"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.c" partName="encoder.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/encoder.c" title="encoder.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/encoder.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/encoder.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="517" selectionTopPixel="360"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.h" partName="encoder.h" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/encoder.h" title="encoder.h" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/encoder.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/encoder.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="136" selectionTopPixel="0"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="adc.c" partName="adc.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/adc.c" title="adc.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/adc.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/adc.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7177" selectionTopPixel="3630"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="adc.h" partName="adc.h" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/adc.h" title="adc.h" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/adc.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/adc.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="183" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="400" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" partName="usart.c" path="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/usart.c" title="usart.c" tooltip="C:/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/usart.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TSM_HAL/usart.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="3398" selectionTopPixel="1454"/>
 </editor>
 </editors>
 <views>
@@ -62,7 +52,7 @@
 <element path="/TSM_HAL"/>
 </expanded>
 <selection>
-<element path="/TSM_HAL/adc.h"/>
+<element path="/TSM_HAL/usart.c"/>
 </selection>
 </viewState>
 </view>
@@ -118,8 +108,8 @@
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryBrowserAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showVariablesAction"/>
 <hide_menu_item_id id="org.coocox.builder.ui.openProjectExplorerAction"/>
-<hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
 <hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
+<hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showRegistersAction"/>
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
@@ -147,7 +137,7 @@
 <layout>
 <mainWindow>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1d43fc6">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.coocox.builder.ui.views.ProjectView" label="LabelNotFound"/>
 <page content="org.coocox.component.ui.view.ComponentView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
@@ -160,7 +150,7 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@359d69" ratio="0.6509863" ratioLeft="429" ratioRight="230" relationship="4" relative="org.eclipse.ui.internal.ViewStack@1d43fc6">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
@@ -170,7 +160,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.15867159" ratioLeft="215" ratioRight="1140" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1d43fc6"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1a70b29" ratio="0.7423581" ratioLeft="680" ratioRight="236" relationship="2" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 <page content="org.coocox.coassistant.view.CoAssistantView" label="LabelNotFound"/>
@@ -184,161 +174,163 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/motor.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/motor.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/encoder.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/motor.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/motor.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/adc.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/adc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TSM_HAL/usart.c"/>
 </editors>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="8701" y="0"/>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="1090" y="0"/>
 </item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="8080" y="0"/>
+<item historyLabel="main.c" index="1">
+<position/>
 </item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="8080" y="0"/>
+<item historyLabel="motor.c" index="0">
+<position info="not_deleted" x="7538" y="0"/>
 </item>
-<item historyLabel="motor.c" index="2">
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="main.c" index="1">
 <position/>
 </item>
 <item historyLabel="motor.c" index="2">
-<position/>
+<position info="not_deleted" x="6718" y="0"/>
 </item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="6581" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="6608" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7867" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7948" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7992" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="8031" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7634" y="20"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="2041" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="887" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7889" y="15"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="887" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1077" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7054" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1077" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="6268" y="72"/>
-</item>
-<item historyLabel="motor.h" index="1">
-<position info="not_deleted" x="257" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1077" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1077" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="6560" y="23"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1106" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7725" y="0"/>
-</item>
-<item historyLabel="encoder.c" index="3">
-<position info="not_deleted" x="517" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7980" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1092" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="8483" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1092" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1204" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1244" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="8222" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1097" y="5"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="8222" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7110" y="0"/>
-</item>
-<item historyLabel="adc.h" index="4">
-<position info="not_deleted" x="183" y="0"/>
-</item>
-<item historyLabel="motor.h" index="1">
+<item historyLabel="motor.h" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7110" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7172" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7202" y="0"/>
-</item>
-<item historyLabel="motor.c" index="2">
+<item historyLabel="main.c" index="1">
 <position/>
 </item>
 <item historyLabel="motor.c" index="2">
+<position info="not_deleted" x="6718" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
 <position/>
 </item>
 <item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7420" y="0"/>
+<position info="not_deleted" x="6718" y="0"/>
 </item>
-<item historyLabel="motor.c" index="2">
+<item historyLabel="motor.h" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="adc.c" index="4">
+<position info="not_deleted" x="7865" y="0"/>
+</item>
+<item historyLabel="adc.c" index="4">
+<position info="not_deleted" x="578" y="0"/>
+</item>
+<item historyLabel="motor.h" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
 <position/>
 </item>
 <item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="8329" y="0"/>
+<position info="not_deleted" x="3888" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1097" y="5"/>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="999" y="0"/>
+</item>
+<item historyLabel="adc.c" index="4">
+<position info="not_deleted" x="578" y="0"/>
+</item>
+<item historyLabel="adc.h" index="5">
+<position info="not_deleted" x="471" y="0"/>
+</item>
+<item historyLabel="adc.h" index="5">
+<position info="not_deleted" x="471" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="adc.c" index="4">
+<position info="not_deleted" x="5583" y="21"/>
 </item>
 <item historyLabel="motor.c" index="2">
-<position info="not_deleted" x="8329" y="0"/>
+<position info="not_deleted" x="3888" y="0"/>
 </item>
-<item active="true" historyLabel="motor.c" index="2">
-<position info="not_deleted" x="7355" y="0"/>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="1218" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="adc.c" index="4">
+<position info="not_deleted" x="7177" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="adc.h" index="5">
+<position info="not_deleted" x="400" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="adc.c" index="4">
+<position info="not_deleted" x="7177" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="1192" y="0"/>
+</item>
+<item historyLabel="motor.c" index="2">
+<position info="not_deleted" x="3888" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="1142" y="0"/>
+</item>
+<item historyLabel="usart.c" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="usart.c" index="6">
+<position info="not_deleted" x="3398" y="10"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="motor.c" index="2">
+<position info="not_deleted" x="3888" y="0"/>
+</item>
+<item historyLabel="motor.h" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="adc.c" index="4">
+<position info="not_deleted" x="7177" y="0"/>
+</item>
+<item historyLabel="adc.h" index="5">
+<position info="not_deleted" x="400" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="1996" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="1">
+<position/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -347,8 +339,20 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" tooltip="TSM_HAL/usart.c">
+<persistable path="/TSM_HAL/usart.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc.h" tooltip="TSM_HAL/adc.h">
 <persistable path="/TSM_HAL/adc.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc.c" tooltip="TSM_HAL/adc.c">
+<persistable path="/TSM_HAL/adc.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="motor.h" tooltip="TSM_HAL/motor.h">
+<persistable path="/TSM_HAL/motor.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="motor.c" tooltip="TSM_HAL/motor.c">
+<persistable path="/TSM_HAL/motor.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.h" tooltip="TSM_HAL/encoder.h">
 <persistable path="/TSM_HAL/encoder.h"/>
@@ -362,19 +366,6 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" tooltip="TSM_HAL/usart.h">
 <persistable path="/TSM_HAL/usart.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" tooltip="TSM_HAL/usart.c">
-<persistable path="/TSM_HAL/usart.c"/>
-</file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
-<persistable>
-<org.coocox.welcome.ui.WelcomePage/>
-</persistable>
-</file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
-<persistable>
-<org.coocox.welcome.ui.WelcomePage/>
-</persistable>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_gpio.h" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_gpio.h">
 <persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_gpio.h"/>
 </file>
@@ -386,9 +377,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="led.c" tooltip="TSM_HAL/led.c">
 <persistable path="/TSM_HAL/led.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="motor.h" tooltip="TSM_HAL/motor.h">
-<persistable path="/TSM_HAL/motor.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_tim.c" tooltip="TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_tim.c">
 <persistable path="/TSM_HAL/components/STM32F405xx_cmsisboot/Hal/stm32f4xx_hal_tim.c"/>
