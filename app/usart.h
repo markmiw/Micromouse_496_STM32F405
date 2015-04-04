@@ -1,13 +1,31 @@
-#define SENSOR 4
-#define LEFT_DET      0
-#define LEFT_CEN_DET  1
-#define RIGHT_CEN_DET 2
-#define RIGHT_DET     3
+/* File Name: usart.h
+ * Project: EE 396
+ * Team: TSM
+ * Members: Mark Miw
+ *          Steven Chen
+ *          Joseph Felix Jr.
+ */
 
-void initUSART();
-void sensorUSART(int sensor);
-void fullSensorUSART();
-void printUSART(int value);
-void printStringUSART();
+#ifndef usart_H
+#define usart_H
+
+#include "global_libs.h"
+#include "HAL_includes.h"
+#include "defines.h"
+
+#include "system.h"
+
+/*
+ * These functions are meant to allow communication with
+ * Alex? via USART.
+ */
+
+/* */
+void initUSART(void);
+void printInt(int value);
+void printString(char *c);
 void printNL();
 void printFloat(float value);
+void printComma();
+
+#endif

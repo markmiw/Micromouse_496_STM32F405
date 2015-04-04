@@ -1,21 +1,32 @@
-#define PERIOD 600
+/* File Name: motor.h
+ * Project: EE 396
+ * Team: TSM
+ * Members: Mark Miw
+ *          Steven Chen
+ *          Joseph Felix Jr.
+ */
 
-typedef enum
-{
-	LEFTMOTOR,
-	RIGHTMOTOR
-}Motor;
+#ifndef motor_H
+#define motor_H
 
-typedef enum
-{
-	FORWARD,
-	BACKWARD
-}Direction;
+#include "global_libs.h"
+#include "HAL_includes.h"
+#include "defines.h"
 
-void initMotor();
-void setBuzzer();
-void setDirection(Motor channel, Direction state);
-uint32_t currentSpeed(Motor channel);
-void setSpeed(Motor channel, uint32_t speed);
-void toggleDirection(Motor channel);
-void travelDistance(uint32_t distance, uint32_t maxSpeed, uint32_t dt);
+#include "adc.h"
+#include "encoder.h"
+#include "interface.h"
+#include "correction.h"
+
+void brake();
+void hardBrake();
+void brakeLeft();
+void brakeRight();
+void setSpeed(Motor channel, int speed);
+void setVelocity(double velocity);
+void setRightVelocity(double velocity);
+void setLeftVelocity(double velocity);
+double getCurrentVelocity(Motor channel);
+double getTargetVelocity(Motor channel);
+
+#endif

@@ -1,0 +1,1225 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"htim",
+				"htim2"
+			],
+			[
+				"RIGHT",
+				"RIGHT_CEN_DET"
+			],
+			[
+				"HAL_",
+				"HAL_Delay"
+			],
+			[
+				"toggle",
+				"toggleLED"
+			],
+			[
+				"init",
+				"initUSART"
+			],
+			[
+				"print",
+				"printStringUSART"
+			],
+			[
+				"reset",
+				"resetLEDAll"
+			],
+			[
+				"calibra",
+				"calibrateLeftWall"
+			],
+			[
+				"to",
+				"toggleLEDAll"
+			],
+			[
+				"setIdea",
+				"setIdealLeftCenter"
+			],
+			[
+				"setLeft",
+				"setIdealLeftFront"
+			],
+			[
+				"fro",
+				"frontRatio"
+			],
+			[
+				"rightError",
+				"rightErrorPrevious"
+			],
+			[
+				"right",
+				"rightError"
+			],
+			[
+				"left",
+				"leftError"
+			],
+			[
+				"leftError",
+				"leftErrorPrevious"
+			],
+			[
+				"ideal",
+				"idealLeft"
+			],
+			[
+				"set",
+				"setSpeed"
+			],
+			[
+				"GPIO_",
+				"GPIO_PIN_SET"
+			],
+			[
+				"T0Con",
+				"T0CONbits"
+			],
+			[
+				"PIE",
+				"PIE1bits"
+			],
+			[
+				"PIR2",
+				"PIR2bits"
+			],
+			[
+				"IPR2",
+				"IPR2bits"
+			],
+			[
+				"PIE2",
+				"PIE2bits"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/adc.c",
+			"settings":
+			{
+				"buffer_size": 4129,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/calibration.c",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/correction.c",
+			"settings":
+			{
+				"buffer_size": 2137,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/encoder.c",
+			"settings":
+			{
+				"buffer_size": 1137,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/interface.c",
+			"settings":
+			{
+				"buffer_size": 4098,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/main.c",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/motor.c",
+			"settings":
+			{
+				"buffer_size": 3980,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/stm32f4xx_it.c",
+			"settings":
+			{
+				"buffer_size": 794,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/system.c",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/tracking.c",
+			"settings":
+			{
+				"buffer_size": 562,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/usart.c",
+			"settings":
+			{
+				"buffer_size": 1642,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/adc.h",
+			"settings":
+			{
+				"buffer_size": 508,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/calibration.h",
+			"settings":
+			{
+				"buffer_size": 543,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/correction.h",
+			"settings":
+			{
+				"buffer_size": 389,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/defines.h",
+			"settings":
+			{
+				"buffer_size": 1923,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/encoder.h",
+			"settings":
+			{
+				"buffer_size": 393,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/global_libs.h",
+			"settings":
+			{
+				"buffer_size": 291,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/interface.h",
+			"settings":
+			{
+				"buffer_size": 607,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/motor.h",
+			"settings":
+			{
+				"buffer_size": 622,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/stm32f4xx_it.h",
+			"settings":
+			{
+				"buffer_size": 438,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/system.h",
+			"settings":
+			{
+				"buffer_size": 814,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/tracking.h",
+			"settings":
+			{
+				"buffer_size": 404,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/usart.h",
+			"settings":
+			{
+				"buffer_size": 499,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/HAL_includes.h",
+			"settings":
+			{
+				"buffer_size": 1155,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+			[
+				"mini",
+				"View: Toggle Minimap"
+			],
+			[
+				"tog",
+				"View: Toggle Minimap"
+			],
+			[
+				"min",
+				"View: Toggle Minimap"
+			],
+			[
+				"project",
+				"Project: Close"
+			],
+			[
+				"view",
+				"View: Toggle Open Files in Side Bar"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/variables.h",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/system.h",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.c",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/system.c",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/usart.h",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/usart.c",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/stm32f4xx_it.h",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/stm32f4xx_it.c",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/motor.h",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/correction.h",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/correction.c",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/calibration.c",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/calibration.h",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/encoder.h",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/encoder.c",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/adc.h",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/adc.c",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/main.c",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/led.h",
+		"/C/Users/Micro Mouse/CoIDE/workspace/TSM_HAL/app/led.c",
+		"/C/Users/Micro Mouse/Downloads/stm32cubef4/STM32Cube_FW_F4_V1.4.0/Projects/STM32F4-Discovery/Examples/FLASH/FLASH_EraseProgram/Src/main.c",
+		"/C/Users/Micro Mouse/Downloads/stm32cubef4/STM32Cube_FW_F4_V1.4.0/Projects/STM32F4-Discovery/Examples/FLASH/FLASH_EraseProgram/Src/stm32f4xx_it.c",
+		"/C/Users/Micro Mouse/Downloads/stm32cubef4/STM32Cube_FW_F4_V1.4.0/Projects/STM32F4-Discovery/Examples/FLASH/FLASH_EraseProgram/Src/system_stm32f4xx.c",
+		"/C/Users/Micro Mouse/Downloads/stm32cubef4/STM32Cube_FW_F4_V1.4.0/Projects/STM32F4-Discovery/Examples/FLASH/FLASH_EraseProgram/Inc/stm32f4xx_it.h",
+		"/C/Users/Micro Mouse/Downloads/stm32cubef4/STM32Cube_FW_F4_V1.4.0/Projects/STM32F4-Discovery/Examples/FLASH/FLASH_EraseProgram/Inc/stm32f4xx_hal_conf.h",
+		"/C/Users/Micro Mouse/Downloads/stm32cubef4/STM32Cube_FW_F4_V1.4.0/Projects/STM32F4-Discovery/Examples/FLASH/FLASH_EraseProgram/Inc/main.h",
+		"/C/Users/Micro Mouse/MPLABXProjects/autoWallAdjuster.X/interrupts.c",
+		"/C/Users/Micro Mouse/MPLABXProjects/autoWallAdjuster.X/configuration_bits.c",
+		"/C/Users/Micro Mouse/MPLABXProjects/autoWallAdjuster.X/main.c",
+		"/C/Users/Micro Mouse/MPLABXProjects/autoWallAdjuster.X/motor.c",
+		"/C/Users/Micro Mouse/MPLABXProjects/autoWallAdjuster.X/motor.h",
+		"/C/Users/Micro Mouse/MPLABXProjects/autoWallAdjuster.X/system.c",
+		"/C/Users/Micro Mouse/MPLABXProjects/autoWallAdjuster.X/system.h",
+		"/C/Users/Micro Mouse/MPLABXProjects/autoWallAdjuster.X/user.c",
+		"/C/Users/Micro Mouse/MPLABXProjects/autoWallAdjuster.X/user.h"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"htim2",
+			"TRANS_DELAY",
+			"GPIO_AF7_USART1",
+			"extern",
+			"rnextern",
+			"rn",
+			"GPIO_InitStructure",
+			"setDirection",
+			"RightBase",
+			"direction",
+			"PERIOD",
+			"600",
+			"direction",
+			"LED",
+			"setDirection",
+			"setChannel",
+			"setSpeed",
+			"setLED",
+			"on",
+			"LED",
+			"1300",
+			"LED"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/adc.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4129,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3095,
+								3106
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 70.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/calibration.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/correction.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2137,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/encoder.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1137,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/interface.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4098,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/motor.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3980,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2874,
+								2874
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1529.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/stm32f4xx_it.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 794,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 148.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/system.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/tracking.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 562,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								546,
+								546
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/usart.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1642,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 11,
+					"file": "app/adc.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 508,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								349,
+								359
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "app/calibration.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 543,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								482,
+								489
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "app/correction.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 389,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "app/defines.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1923,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1508,
+								1508
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 435.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "app/encoder.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 393,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "app/global_libs.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 291,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "app/interface.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								493,
+								503
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "app/motor.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 622,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 22,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "app/stm32f4xx_it.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 438,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "app/system.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 814,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 23,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "app/tracking.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 404,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								339,
+								339
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "app/usart.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 499,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "app/HAL_includes.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1155,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 113.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "TSM_HAL.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Micro Mouse\\Documents\\Sublime Projects\\autoWallAdjuster.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": false,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,15 +1,18 @@
-#include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal.h"
-#include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_adc.h"
-#include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_gpio.h"
-#include "components/coocox-master/STM32F405xx_cmsisboot/source/Hal/stm32f4xx_hal_rcc.h"
+/* File Name: stm32fxx_it.c
+ * Project: EE 396
+ * Team: TSM
+ * Members: Mark Miw
+ *          Steven Chen
+ *          Joseph Felix Jr.
+ */
 
 #include "stm32f4xx_it.h"
 
-#include "encoder.h"
 
 extern TIM_HandleTypeDef buzzerHandler;
-extern TIM_HandleTypeDef countHandler;
-extern TIM_HandleTypeDef rightHandler;
+extern TIM_HandleTypeDef brakeHandler;
+extern TIM_HandleTypeDef velocityHandler;
+extern TIM_HandleTypeDef htim2;
 
 void SysTick_Handler(void) {
   HAL_IncTick();
@@ -28,7 +31,7 @@ void EXTI0_IRQHandler(void) {
 }
 
 void TIM2_IRQHandler(void) {
-	HAL_TIM_IRQHandler(&countHandler);
+	HAL_TIM_IRQHandler(&htim2);
 }
 
 void TIM3_IRQHandler(void) {
@@ -36,5 +39,5 @@ void TIM3_IRQHandler(void) {
 }
 
 void TIM5_IRQHandler(void) {
-	HAL_TIM_IRQHandler(&rightHandler);
+	HAL_TIM_IRQHandler(&brakeHandler);
 }
