@@ -53,7 +53,7 @@ void moveForward(int cells, Wall_Correction wall, double base_speed) {
 	}
 }
 
-void moveCells(int num, double base_speed) {
+void moveCells(int num, double base_speed, int wall) {
 
 	double left_front_sensor;
 	double right_front_sensor;
@@ -61,7 +61,7 @@ void moveCells(int num, double base_speed) {
 	double speed = base_speed;
 	int startL = getEncoder(LEFTENCODER);
 	int distance = startL + CELL_L*(num);
-	setLED(GREEN);
+//	setLED(GREEN);
 
 	while(1) {
 		left_front_sensor = readSensor(LEFT_DET);
@@ -69,21 +69,21 @@ void moveCells(int num, double base_speed) {
 		location = getEncoder(LEFTENCODER);
 
 		if (right_front_sensor <= getWall(IDEALRIGHTFRONT) && left_front_sensor <= getWall(IDEALLEFTFRONT)) {
-			setLED(RED);
-			resetLED(GREEN);
+//			setLED(RED);
+//			resetLED(GREEN);
 			hardBrake();
 			frontCorrection();
 			break;
 		}
 
 		if (location > distance) {
-			setLED(BLUE);
-			resetLED(GREEN);
+//			setLED(BLUE);
+//			resetLED(GREEN);
 //			speed = base_speed*(distance-location)/CELL_L;
 			brake();
 			break;
 		}
 
-		correction(0, speed);
+		correction(wall, speed);
 	}
 }

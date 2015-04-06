@@ -119,7 +119,7 @@ void correction(uint8_t wall, double base_speed) {
 	double errorRight;
 
 	const double kP = .2;
-	const double kD = 0;
+	const double kD = 0.0001;
 
 	double left_side_sensor = readSensor(LEFT_CEN_DET);
 	double right_side_sensor = readSensor(RIGHT_CEN_DET);
@@ -127,20 +127,19 @@ void correction(uint8_t wall, double base_speed) {
 	HAL_TIM_Base_Start_IT(&htim2);
 
 	if (wall == 0) {
+		if (right_side_sensor > getWall(FARRIGHTWALL)) right_side_sensor = getWall(FARRIGHTWALL);
 		errorRight = getWall(IDEALRIGHTCENTER) - right_side_sensor;
-		setLeftVelocity(base_speed - (errorRight * kP));
-		setRightVelocity(base_speed + (errorRight * kP));
+		setLeftVelocity(base_speed - (errorRight * kP - (errorRight - lastErrorRight) * kD));
+		setRightVelocity(base_speed + (errorRight * kP - (errorRight - lastErrorRight) * kD));
 	}
 	else if (wall == 1) {
+		if (left_side_sensor > getWall(FARLEFTWALL)) left_side_sensor = getWall(FARLEFTWALL);
 		errorLeft = getWall(IDEALLEFTCENTER) - left_side_sensor;
-		setLeftVelocity(base_speed + (errorLeft * kP));
-		setRightVelocity(base_speed - (errorLeft * kP));
+		setLeftVelocity(base_speed + (errorLeft * kP - (errorLeft - lastErrorLeft) * kD));
+		setRightVelocity(base_speed - (errorLeft * kP - (errorLeft - lastErrorLeft) * kD));
 	}
 	else {
-		brake();
-		while(!getButton());
-		HAL_Delay(500);
-		HAL_TIM_Base_Start_IT(&htim2);
+		setVelocity(base_speed);
 	}
 
 	lastErrorLeft = errorLeft;

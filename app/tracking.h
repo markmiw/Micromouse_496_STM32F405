@@ -22,6 +22,6 @@ bool hasFrontWall(double valueRight, double valueLeft);
 
 void moveForward(int cells, Wall_Correction wall, double base_speed);
 
-void moveCells(int num, double base_speed);
+void moveCells(int num, double base_speed, int wall);
 
 #endif
